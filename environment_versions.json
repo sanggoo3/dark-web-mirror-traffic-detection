@@ -1,0 +1,11 @@
+{
+  "python": "3.12.7 | packaged by Anaconda, Inc.",
+  "numpy": "1.26.4",
+  "pandas": "2.2.2",
+  "scikit-learn": "1.8.0",
+  "torch": "2.5.1+cu121",
+  "matplotlib": "3.9.2",
+  "cuda_available": true,
+  "cuda_version": "12.1",
+  "gpu": "NVIDIA GeForce RTX 3060 Ti"
+}

@@ -1,0 +1,17 @@
+# Table 8. ResNet1D Final Hyperparameter Setting
+
+| Parameter              | Value                                                     |
+|:-----------------------|:----------------------------------------------------------|
+| Model                  | ResNet1D                                                  |
+| Input                  | pcapng seq_len=506 post-handshake direction-only sequence |
+| Handshake removal      | first 20 packets                                          |
+| Residual blocks        | 3                                                         |
+| Channels               | (64, 128, 128)                                            |
+| Kernel sizes per block | (8, 5, 3)                                                 |
+| Dropout                | 0.0000                                                    |
+| Learning rate          | 0.0010                                                    |
+| Weight decay           | 0.0001                                                    |
+| Batch size             | 128                                                       |
+| Decision threshold     | 0.5400                                                    |
+
+Note: Hyperparameter setting selected by validation ROC-AUC; decision threshold selected by validation F1-score.

@@ -1,0 +1,2 @@
+﻿key,Model,Condition,Input,seq_len,Threshold,Accuracy,Precision,Recall,F1-score,ROC-AUC,best_epoch,best_val_auc,train_seconds,n_test
+table_after_first20_seq300,TCN,seq_len=300,pcapng seq_len=300,300,0.43,0.7467391304347826,0.6851549755301795,0.9130434782608695,0.782851817334576,0.8913374291115312,20,0.8782785916824196,392.5085391998291,920

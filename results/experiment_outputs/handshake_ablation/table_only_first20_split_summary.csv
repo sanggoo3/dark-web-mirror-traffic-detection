@@ -1,0 +1,4 @@
+﻿split,n_samples,n_class0,n_class1,n_sites
+subtrain,3312,1656,1656,46
+val,368,184,184,46
+test,920,460,460,46

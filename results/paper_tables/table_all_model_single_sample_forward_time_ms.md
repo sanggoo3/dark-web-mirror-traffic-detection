@@ -1,0 +1,16 @@
+# All Model Single-Sample Forward Time
+
+| Model               | single_sample_ms_mean   | single_sample_ms_median   | single_sample_ms_p95   | single_sample_ms_min   | single_sample_ms_max   | n_timed_runs   |
+|:--------------------|:------------------------|:--------------------------|:-----------------------|:-----------------------|:-----------------------|:---------------|
+| TCN                 | 4.4009                  | 4.0159                    | 6.1284                 | 3.4488                 | 10.8960                | 2760           |
+| ResNet1D            | 1.6680                  | 1.4047                    | 2.6340                 | 1.2517                 | 3.3707                 | 2760           |
+| InceptionTime       | 1.5542                  | 1.4746                    | 2.3735                 | 0.9503                 | 3.8758                 | 2760           |
+| 1D-CNN              | 0.8259                  | 0.6853                    | 1.3580                 | 0.5818                 | 4.1090                 | 2760           |
+| FCN-1D              | 0.6039                  | 0.5204                    | 0.9779                 | 0.4740                 | 1.2821                 | 2760           |
+| ROCKET-style        | 1.8084                  | 1.7643                    | 2.4101                 | 1.2732                 | 2.9497                 | 2760           |
+| GRU                 | 0.7369                  | 0.7278                    | 0.8448                 | 0.6489                 | 1.2275                 | 2760           |
+| BiGRU               | 1.2152                  | 1.2181                    | 1.3140                 | 1.1196                 | 1.5959                 | 2760           |
+| Transformer Encoder | 0.8467                  | 0.7383                    | 1.3094                 | 0.6288                 | 2.2363                 | 2760           |
+| LSTM                | 0.8475                  | 0.8429                    | 0.9542                 | 0.7523                 | 1.2371                 | 2760           |
+
+Note: Single-sample timing includes NumPy slice conversion, tensor transfer to device, forward pass, sigmoid/scoring, and CUDA synchronization when applicable.

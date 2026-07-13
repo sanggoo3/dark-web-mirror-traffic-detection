@@ -1,0 +1,2 @@
+﻿key,Model,Condition,Input,seq_len,Threshold,Accuracy,Precision,Recall,F1-score,ROC-AUC,best_epoch,best_val_auc,train_seconds,n_test
+table3_5s_seq905,TCN,5s fixed seq_len=905,pcapng 5s fixed seq_len=905,905,0.59,0.9586956521739131,0.9470338983050848,0.9717391304347827,0.9592274678111588,0.9911578449905483,47,0.9970758506616256,659.3724293708801,920

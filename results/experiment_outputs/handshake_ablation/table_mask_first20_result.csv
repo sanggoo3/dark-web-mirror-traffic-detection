@@ -1,0 +1,2 @@
+﻿key,Model,Condition,Input,seq_len,Threshold,Accuracy,Precision,Recall,F1-score,ROC-AUC,best_epoch,best_val_auc,train_seconds,n_test
+table_mask_first20,TCN,Handshake masked,pcapng Handshake masked,506,0.47,0.9315217391304348,0.9440715883668904,0.9173913043478261,0.9305402425578831,0.9804017013232513,35,0.9823960302457467,580.8563804626465,920

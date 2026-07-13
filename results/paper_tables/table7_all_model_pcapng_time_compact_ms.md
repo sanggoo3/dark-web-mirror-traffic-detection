@@ -1,0 +1,16 @@
+# Table 7. All Model pcapng Time
+
+| Model               | Preprocess (ms)   | Inference (ms)   | Total (ms)   |
+|:--------------------|:------------------|:-----------------|:-------------|
+| TCN                 | 7.2390            | 5.1895           | 12.4285      |
+| ResNet1D            | 7.2390            | 1.7396           | 8.9786       |
+| InceptionTime       | 7.2390            | 1.3719           | 8.6109       |
+| 1D-CNN              | 7.2390            | 0.8128           | 8.0518       |
+| FCN-1D              | 7.2390            | 0.6545           | 7.8935       |
+| ROCKET-style        | 7.2390            | 1.8348           | 9.0738       |
+| GRU                 | 7.2390            | 0.7731           | 8.0121       |
+| BiGRU               | 7.2390            | 1.2447           | 8.4837       |
+| Transformer Encoder | 7.2390            | 0.9007           | 8.1397       |
+| LSTM                | 7.2390            | 0.8063           | 8.0453       |
+
+Note: Total time is Preprocess plus Inference for one test sample.

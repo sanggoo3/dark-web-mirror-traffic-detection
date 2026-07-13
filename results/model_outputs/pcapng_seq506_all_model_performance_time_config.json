@@ -1,0 +1,79 @@
+{
+  "input": "pcapng_fast_526 -> post-handshake seq_len=506 direction-only sequence",
+  "n_samples": 4600,
+  "n_test": 920,
+  "device": "cuda",
+  "torch_version": "2.5.1+cu121",
+  "cuda_available": true,
+  "cuda_version": "12.1",
+  "models": [
+    {
+      "key": "tcn",
+      "model_label": "TCN",
+      "model_kind": "tcn",
+      "source": "base"
+    },
+    {
+      "key": "cnn_1d",
+      "model_label": "1D-CNN",
+      "model_kind": "cnn_1d",
+      "source": "base"
+    },
+    {
+      "key": "bigru",
+      "model_label": "BiGRU",
+      "model_kind": "bigru",
+      "source": "base"
+    },
+    {
+      "key": "lstm",
+      "model_label": "LSTM",
+      "model_kind": "lstm",
+      "source": "base"
+    },
+    {
+      "key": "gru",
+      "model_label": "GRU",
+      "model_kind": "gru",
+      "source": "base"
+    },
+    {
+      "key": "resnet_1d",
+      "model_label": "ResNet1D",
+      "model_kind": "resnet_1d",
+      "source": "extended"
+    },
+    {
+      "key": "inception_time",
+      "model_label": "InceptionTime",
+      "model_kind": "inception_time",
+      "source": "extended"
+    },
+    {
+      "key": "fcn_1d",
+      "model_label": "FCN-1D",
+      "model_kind": "fcn_1d",
+      "source": "extended"
+    },
+    {
+      "key": "transformer_encoder",
+      "model_label": "Transformer Encoder",
+      "model_kind": "transformer",
+      "source": "extended"
+    },
+    {
+      "key": "rocket_style",
+      "model_label": "ROCKET-style",
+      "model_kind": "rocket_style",
+      "source": "rocket"
+    }
+  ],
+  "train_params": {
+    "batch_size": 64,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "epochs": 50,
+    "patience": 10
+  },
+  "gpu_name": "NVIDIA GeForce RTX 3060 Ti"
+}

@@ -1,0 +1,43 @@
+{
+  "experiment_type": "tcn_seq506_posthandshake_hyperparameter_grid",
+  "source_npz": "data/processed/final_seq506_posthandshake/direction_seq506_posthandshake.npz",
+  "source_meta": "data/processed/final_seq506_posthandshake/metadata.csv",
+  "seq_len": 506,
+  "variant": "post_handshake",
+  "handshake_criterion": "first_20_packets_removed_from_initial_526_directions",
+  "selection_metric": "validation_roc_auc",
+  "threshold_selection_metric": "validation_f1_binary",
+  "threshold_grid": "0.10 to 0.90 step 0.01",
+  "grid": {
+    "channels": [
+      [
+        16,
+        32,
+        64
+      ],
+      [
+        32,
+        64,
+        128
+      ]
+    ],
+    "kernel_size": [
+      3,
+      5
+    ],
+    "dropout": [
+      0.1,
+      0.2
+    ]
+  },
+  "fixed_train_params": {
+    "batch_size": 64,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "epochs": 50,
+    "patience": 10
+  },
+  "random_state": 42,
+  "test_size": 0.2,
+  "val_size_within_train": 0.1
+}

@@ -1,0 +1,5 @@
+﻿Handshake processing condition,seq_len,Accuracy,Precision,Recall,F1-score,ROC-AUC
+Handshake included,526,0.9304,0.9670,0.8913,0.9276,0.9758
+Post-handshake sequence,506,0.9315,0.9671,0.8935,0.9288,0.9824
+Handshake masked,506,0.9315,0.9441,0.9174,0.9305,0.9804
+Handshake only,506,0.5239,0.5124,0.9913,0.6756,0.5397

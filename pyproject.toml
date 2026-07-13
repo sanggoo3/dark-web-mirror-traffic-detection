@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "darkmirror-direction-repro"
+version = "0.1.0"
+description = "Reproducibility package for direction-only encrypted traffic classification of dark mirror sites."
+requires-python = ">=3.10"
+dependencies = [
+  "numpy==1.26.4",
+  "pandas==2.2.2",
+  "scikit-learn==1.8.0",
+  "torch==2.5.1",
+  "matplotlib==3.9.2",
+  "tabulate",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
