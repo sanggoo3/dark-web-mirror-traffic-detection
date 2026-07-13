@@ -116,6 +116,21 @@ python scripts/tune_resnet1d.py
 
 Retraining can produce small numerical differences across PyTorch, CUDA, and GPU environments.
 
+## Versioned Snapshot
+
+For paper reproduction, use the fixed `v1.0.0` tag rather than the moving `main` branch:
+
+```text
+https://github.com/sanggoo3/dark-web-mirror-traffic-detection/tree/v1.0.0
+```
+
+## License
+
+This repository uses a split license:
+
+- Code: MIT License. See `LICENSE`.
+- Data, results, and documentation: CC BY-NC 4.0. See `DATA_LICENSE.md`.
+
 ## Interpretation Notes
 
 The final experiments use a sample-level stratified split with seed `42`. The same URL group can appear in train, validation, and test splits, so the results should be interpreted as sample-level session classification performance rather than unseen-URL generalization.
