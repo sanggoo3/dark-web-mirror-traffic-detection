@@ -26,7 +26,7 @@ For each session, the original preprocessing:
 4. truncates sequences longer than the target length;
 5. pads shorter sequences with `0`.
 
-The final post-handshake input removes the first 20 packet directions from the 3-second median-based length of 526, yielding `seq_len=506`.
+The final post-handshake input removes the first 20 packet directions from the 3-second median-based length of 526, yielding `seq_len=506`. In other words, the final sequence is `direction[20:526]`; it is not produced by taking a 506-length sequence and then removing another 20 packets.
 
 ## Metrics
 
@@ -53,9 +53,9 @@ Final deep-learning runs used:
 |---|---|---|
 | Table 3 | Initial time-window performance | fixed sequence lengths from 1 s, 3 s, 5 s, and 10 s median packet counts |
 | Table 5 | Handshake ablation | include, exclude, and handshake-only sequence variants |
-| Table 6 | Sequence length reduction | post-handshake `seq_len=506` versus `seq_len=300` |
-| Table 7 | Model performance comparison | final `seq_len=506` post-handshake input |
-| Table 8 | TCN and ResNet1D hyperparameter settings and tuning summary | final `seq_len=506` post-handshake input |
+| Table 6 | Sequence length reduction | post-handshake length `506` versus `300` |
+| Table 7 | Model performance comparison | first 526 directions, remove first 20, final length 506 |
+| Table 8 | TCN and ResNet1D hyperparameter settings and tuning summary | first 526 directions, remove first 20, final length 506 |
 
 ## Candidate Models
 
@@ -71,7 +71,7 @@ All models receive the same direction-only sequence values. Architecture-specifi
 
 ## Final Candidate Selection
 
-Under the final `seq_len=506` post-handshake condition, TCN achieves the highest ROC-AUC in the packaged final tables. ResNet1D is retained as the other final candidate because the paper jointly considers detection performance and processing time.
+Under the final condition of taking the first 526 directions and removing the initial 20 handshake packets, TCN achieves the highest ROC-AUC in the packaged final tables. ResNet1D is retained as the other final candidate because the paper jointly considers detection performance and processing time.
 
 Final same-condition hyperparameter summaries:
 

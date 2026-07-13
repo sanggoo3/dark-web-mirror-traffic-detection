@@ -48,6 +48,8 @@ The final model-comparison condition uses the 3-second median-based sequence len
 - use the remaining fixed-length direction-only sequence
 - final input length: `seq_len=506`
 
+Important: `seq_len=506` is the length after handshake removal. It is computed as `526 - 20 = 506`; the preprocessing does not start from 506 and then remove another 20 packets.
+
 Main final data file:
 
 ```text
@@ -105,7 +107,7 @@ python scripts/train_reference_model.py --model tcn
 python scripts/train_reference_model.py --model resnet1d
 ```
 
-Hyperparameter tuning reruns under the final `seq_len=506` post-handshake condition:
+Hyperparameter tuning reruns under the final `first 526 -> remove first 20 -> seq_len=506` condition:
 
 ```bash
 python scripts/tune_tcn.py

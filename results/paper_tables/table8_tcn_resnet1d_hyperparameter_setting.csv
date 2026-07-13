@@ -1,5 +1,5 @@
 ﻿Parameter,TCN,ResNet1D
-Input,pcapng seq_len=506 post-handshake direction-only sequence,pcapng seq_len=506 post-handshake direction-only sequence
+Input,first 526 directions -> remove first 20 -> final seq_len=506,first 526 directions -> remove first 20 -> final seq_len=506
 Handshake removal,first 20 packets,first 20 packets
 Block structure,3 TCN blocks,3 residual blocks
 Channels,"(32, 64, 128)","(64, 128, 128)"

@@ -112,7 +112,7 @@ def build_timing_table(root: Path) -> pd.DataFrame:
 
 def build_table8() -> pd.DataFrame:
     rows = [
-        ("Input", "pcapng seq_len=506 post-handshake direction-only sequence", "pcapng seq_len=506 post-handshake direction-only sequence"),
+        ("Input", "first 526 directions -> remove first 20 -> final seq_len=506", "first 526 directions -> remove first 20 -> final seq_len=506"),
         ("Handshake removal", "first 20 packets", "first 20 packets"),
         ("Block structure", "3 TCN blocks", "3 residual blocks"),
         ("Channels", "(32, 64, 128)", "(64, 128, 128)"),
@@ -137,7 +137,7 @@ def build_table8_tuning_seq506(root: Path) -> pd.DataFrame:
             {
                 "Model": "TCN",
                 "Selected candidate": tcn_best["candidate_id"],
-                "Input condition": "seq_len=506 post-handshake direction-only sequence",
+                "Input condition": "first 526 directions -> remove first 20 -> final seq_len=506",
                 "Channels": tcn_best["channels"],
                 "Kernel size(s)": str(int(tcn_best["kernel_size"])),
                 "Dropout": tcn_best["dropout"],
@@ -155,7 +155,7 @@ def build_table8_tuning_seq506(root: Path) -> pd.DataFrame:
             {
                 "Model": "ResNet1D",
                 "Selected candidate": res_best["candidate_id"],
-                "Input condition": "seq_len=506 post-handshake direction-only sequence",
+                "Input condition": "first 526 directions -> remove first 20 -> final seq_len=506",
                 "Channels": res_best["channels"],
                 "Kernel size(s)": res_best["kernels"],
                 "Dropout": res_best["dropout"],
@@ -194,14 +194,14 @@ def main() -> None:
         out_dir,
         "table8_tcn_resnet1d_hyperparameter_setting",
         "Table 8. Final Hyperparameter Settings for TCN and ResNet1D",
-        "Both TCN and ResNet1D hyperparameters were selected using the same final seq_len=506 post-handshake direction-only sequence. Decision thresholds were selected by validation F1-score.",
+        "Both TCN and ResNet1D hyperparameters were selected using the same final input: first 526 directions, remove first 20 handshake packets, final seq_len=506. Decision thresholds were selected by validation F1-score.",
     )
     write_table(
         build_table8_tuning_seq506(root),
         out_dir,
         "table8_tcn_resnet1d_tuning_seq506_summary",
         "Table 8. TCN and ResNet1D Hyperparameter Optimization Results",
-        "Both models use the same final input condition: seq_len=506 post-handshake direction-only sequence.",
+        "Both models use the same final input condition: first 526 directions, remove first 20 handshake packets, final seq_len=506.",
     )
     print(f"[done] reproduced tables: {out_dir}")
 

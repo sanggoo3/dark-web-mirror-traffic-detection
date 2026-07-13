@@ -77,3 +77,5 @@ It follows this construction:
 4. Use the remaining `506` packet-direction symbols as the fixed-length input.
 
 This is equivalent to `direction[20:526]`.
+
+Therefore, `seq_len=506` always refers to the post-handshake length after removing the initial 20 packets from the 526-direction baseline. It does not mean that 20 packets are removed again from an already 506-long sequence.

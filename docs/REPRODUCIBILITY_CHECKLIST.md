@@ -31,8 +31,8 @@
 | Positive class | Dark Web Mirror site |
 | Input feature | direction-only sequence |
 | Direction values | `+1`, `-1`, `0` padding |
-| Final sequence construction | first 526 packet directions, remove first 20 handshake packets |
-| Final length | `seq_len=506` |
+| Final sequence construction | first 526 packet directions, then remove first 20 handshake packets |
+| Final length | `seq_len=506` after removal, not before removal |
 | Split | sample-level stratified split |
 | Random seed | 42 |
 | Optimizer | Adam |
