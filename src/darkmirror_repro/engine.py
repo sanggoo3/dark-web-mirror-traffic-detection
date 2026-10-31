@@ -44,7 +44,7 @@ class Fusion526(torch.nn.Module):
 class PaperEngine(NeuralEngineCore):
     def __init__(self, root=ROOT, out=None, heartbeat=None):
         if not torch.cuda.is_available():
-            raise RuntimeError('Recorded training requires CUDA; verify/reproduce work without CUDA.')
+            raise RuntimeError('Reference training requires CUDA; verify/descriptives work without CUDA.')
         self.root = Path(root)
         self.out = Path(out or self.root / 'artifacts')
         self.out.mkdir(parents=True, exist_ok=True)

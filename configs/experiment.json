@@ -1,6 +1,6 @@
 {
   "dataset_id": "direction526-20261101",
-  "code_tag": "v2.0.1",
+  "code_tag": "v2.0.0",
   "outer_folds": 5,
   "inner_folds": 3,
   "pilot_seeds": [
@@ -1950,14 +1950,5 @@
       "model loading",
       "cold start"
     ]
-  },
-  "excluded_unreported": [
-    "fixed holdout",
-    "masked initial20",
-    "sequence shuffling",
-    "exact threshold followup",
-    "statistics-only MLP",
-    "volume-only MLP",
-    "whole20s volume fusion"
-  ]
+  }
 }

@@ -1,73 +1,72 @@
 # Dark Web Mirror Traffic Detection
 
-Data and code supporting **Detecting Dark Web Mirror Sites on the ClearNET: An Encrypted Traffic Classification Approach** (revised Korean manuscript).
+Minimal data and code for **Detecting Dark Web Mirror Sites on the ClearNET: An Encrypted Traffic Classification Approach**.
 
-**Use release [`v2.0.1`](https://github.com/sanggoo3/dark-web-mirror-traffic-detection/releases/tag/v2.0.1) with dataset `direction526-20261101`.** This is the reproducibility version for the revised manuscript.
+Release: [v2.0.0](https://github.com/sanggoo3/dark-web-mirror-traffic-detection/releases/tag/v2.0.0). Dataset: `direction526-20261101`. Exact file SHA-256 values are in `release_manifest.json`.
 
-## Availability
+## Files
 
-Processed, pseudonymized direction sequences, auxiliary relative timing data, split assignments, model configurations and recorded numerical results are public here. **Raw PCAP/PCAPNG files are not public for privacy and security reasons.** Original URLs, domain strings, IP addresses, capture dates and local source paths are not included. Anonymous site/domain relationships are retained to audit group separation. See [DATASET](docs/DATASET.md), [PREPROCESSING](docs/PREPROCESSING.md) and [availability statements](docs/AVAILABILITY_ko.md).
-
-The primary input is the **first 526 eligible packet directions within a 20-second session, including the initial 20 packets**. Values are +1 client-to-server, -1 server-to-client, 0 right padding. Length 506 is only the ablation slice `q[20:526]`. Classification is not restricted to the first three seconds. **Table 3(a) contains historical statistics that differ from the corrected final data**; corrected numbers are supplied in [MANUSCRIPT_CORRECTIONS](docs/MANUSCRIPT_CORRECTIONS.md). Fixed comparison lengths remain 137/526/905/1276.
-
-## Contents
-
-| Location | Contents |
+| Path | Purpose |
 | --- | --- |
-| `data/processed/` | Compressed numeric arrays; no raw network payload |
-| `data/metadata/` | Anonymous session/site/group assignments and timing sample membership |
-| `data/splits/` | Exact outer and inner assignments for both five-fold protocols |
-| `configs/` | All 12-candidate grids, 100 fold/model winners, feature scalers and provenance |
-| `src/darkmirror_repro/` | Models, tuning/training, locked test evaluation, preprocessing, statistics and timing |
-| `results/recorded/` | 7,200 HPO trials, 700 final runs, validation/test probabilities and timed calls |
-| `results/tables/` | Recalculated manuscript tables and Figure 3 data/plot |
-| `docs/` | Protocol, limitations, corrections, checks and availability wording |
+| `data/processed/` | Direction sequences and same-prefix light16 features |
+| `data/metadata/` | Anonymous session/site/group assignments, descriptive counts, timing sample indices |
+| `data/splits/` | Exact outer/inner indices for group-aware and session-stratified evaluation |
+| `configs/experiment.json` | Candidate grids, training, threshold, bootstrap and timing settings |
+| `configs/selected_configurations.json` | Recorded validation-selected configuration for each fold/model |
+| `src/darkmirror_repro/` | Models, tuning/training, evaluation, statistics and preprocessing/timing code |
 
-Only experiments reported in this manuscript are included. Historical fixed holdout, masked/shuffled controls, statistics-only and whole-session volume-fusion experiments are excluded. See [EXPERIMENTS](docs/EXPERIMENTS.md) for the exact table-to-command mapping.
+No archived predictions, duplicate result tables, plots, checkpoints or auxiliary documentation are distributed. New outputs are written to ignored `artifacts/`.
 
-For a Korean walkthrough of the modules and execution flow, see [CODE_STRUCTURE_ko](docs/CODE_STRUCTURE_ko.md).
+## Data and Input
 
-## Install
+4,600 sessions; labels0=Clear web,1=Dark mirror web; 2,300 sessions per class. `sessions.csv` maps each zero-based array index to anonymous session/site/domain IDs. Original URLs/domains, IPs, capture dates, paths and raw PCAP/PCAPNG are not public for privacy/security reasons. Anonymous group relationships are retained for split auditing; pseudonymization does not guarantee irreversible anonymity.
 
-Python 3.12.7 was used. Create a separate environment. For recorded CUDA 12.1 training, install PyTorch from its [official historical wheel index](https://docs.pytorch.org/get-started/previous-versions/):
+Load NPZ files with `numpy.load(..., allow_pickle=False)`. `direction_sequences.npz` contains `prefix`(4600,1276) int8, `relative_times_s`(4600,1276) float64, `window_counts`(4600,4), `retained_count`(4600,), `y` and `groups`. Directions are+1 client-to-server/-1 server-to-client/0 right padding; padded times are NaN. Window counts refer to actual <=1/3/5/10seconds. All rows share the same metadata index.
+
+Primary input: first526 eligible directions within20seconds, **including initial20**. Post-handshake control: `q[20:526]`, length506, removed once. The cohort has no padding at526. Fixed comparison lengths137/526/905/1276 are pre-existing design constants, not time-cropped classification inputs. Corrected packet-count statistics differ from historical Table3(a): 3s mean833.4770; 10s median1275, while the fixed experimental length1276 remains unchanged. `descriptives` recalculates these statistics and class-specific padding incidence.
+
+Direction-only models use no time/count/payload features. `light_statistics_526.npz` contains the redundant float32 `light`(4600,16) features for the explicit fusion experiment only. `features.py` defines their exact formulas from the same526 directions/relative times. Fit-only StandardScaler is used for fusion. `full20s_direction_descriptives.csv` contains descriptive whole-session counts, not classifier inputs.
+
+## Install and Run
+
+Recorded environment: Python3.12.7, PyTorch2.5.1+cu121, CUDA12.1, Windows, RTX3060Ti8GB. Use a separate environment and run from this repository:
 
 ```console
 python -m pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121
 python -m pip install -r requirements.txt
 python -m pip install --no-deps -e .
-```
-
-PyTorch CPU is sufficient for verification and recorded-result reaggregation. The reference training entry point requires CUDA. Run commands from the repository root; keep the repository data beside the editable package. A different data location can be supplied using `python -m darkmirror_repro --root PATH ...`.
-
-## Verify and Recalculate
-
-```console
 python -m darkmirror_repro verify
-python -m unittest discover -s tests -v
-python -m darkmirror_repro reproduce --out artifacts/reproduced
-```
-
-`verify` checks the versioned SHA-256 manifest, array encoding, padding and split disjointness. `reproduce` independently recalculates metrics, validation thresholds, HPO winners, seed intervals, 2,000-replicate conditional domain intervals, timing summaries and Figure 3. It asserts agreement with the released reference numbers. It **does not retrain**. `--skip-bootstrap` provides a faster audit without claiming to recalculate domain intervals.
-
-## Retrain
-
-```console
+python -m darkmirror_repro descriptives
 python -m darkmirror_repro tune --out artifacts/rerun
 python -m darkmirror_repro train --out artifacts/rerun
 python -m darkmirror_repro evaluate --out artifacts/rerun
 python -m darkmirror_repro summarize --out artifacts/rerun
 ```
 
-This executes 7,200 inner-HPO fits and 700 final fits, followed by batch-one test evaluation. For retraining with the already recorded validation-selected settings, skip HPO using `train --recorded-choices`. Commands support `--split`, `--model`, `--fold` filters; training also supports `--seed`. Such a filtered run is a smoke/subset experiment, not a complete paper rerun. Outputs go to ignored `artifacts/`; released results are never overwritten. No model checkpoint weights are distributed; train them locally.
+Training requires CUDA. Verification/descriptives do not. To skip HPO and retrain the recorded settings, use `train --recorded-choices`. `tune`/`train` accept `--split`, `--model`, `--fold`; `train` also accepts `--seed`. Full summaries require all700 final evaluations. This minimal package requires retraining to regenerate performance tables; it does not reaggregate archived paper predictions. Retrained results can differ across hardware/software.
 
-Numerical equality after retraining is not guaranteed across GPU, driver or library versions. The validation checks include replay of the original checkpoints for all released model/condition combinations, but not a new full 7,900-fit rerun. The cohort was inspected during prior exploratory development; group separation prevents shared-domain leakage within the supplied splits, not all possible historical development bias or proof of external generalization.
+## Evaluation Protocol
 
-## Processing Time
+Both protocols use fixed outer5-fold partitions and inner3-fold tuning on fit only. Group-aware assignments hold domains together; session-stratified assignments allow known domains across partitions. Outer split seed42, reserved validation seed42+fold, inner split seed142+fold. Use the supplied ordered indices, not regenerated splits on renamed domain strings. No test input enters tuning, scaler fitting, early stopping or threshold selection.
 
-Recorded timing can be reaggregated publicly. New end-to-end PCAP preprocessing measurements require separately held captures and client-IP metadata, so this part cannot be independently repeated from processed sequences alone. [LATENCY](docs/LATENCY.md) specifies the exact timing boundaries and private-input benchmark command. Reported processing excludes packet collection wait and model loading; it is not live wall-clock detection delay.
+Ten families: TCN,ResNet1D,InceptionTimeLite,1D-CNN,FCN-1D,GRU,BiGRU,LSTM,Transformer Encoder,ROCKET-style. Each family has12candidates, evaluated using pilot seeds11/23 and3innerfolds. Rank by validation ROC-AUC mean descending, SD ascending, configuration ID ascending. Final seeds11/23/71/101/202. Main evaluation includes500fits; TCN length/handshake comparisons150; TCN/ResNet1D light16 fusion50. Total7,200HPO+700finalfits. Auxiliary comparisons reuse each fold's526-selected configuration.
 
-## Version and Licensing
+Adam/BCEWithLogitsLoss; at most50epochs, minimum20, patience10 on validation ROC-AUC; best checkpoint restored, gradient clipping1. Threshold0.10..0.90 step0.01, validation F1 maximum, then Accuracy maximum, then lower threshold. Freeze decisions before batch1test evaluation. RNNs receive the same values reshaped(N,L,1); other neural models receive(N,1,L). TCN is symmetric-padded, not strictly causal; InceptionTimeLite and ROCKET-style are implementation-specific, not canonical InceptionTime/ROCKET.
 
-`data/DATASET_VERSION.json` identifies every data file by SHA-256; `release_manifest.json` identifies the entire snapshot (excluding itself). Git tag `v2.0.1` pins source and dataset together. Cite this release rather than the changing default branch.
+First average5folds per seed, then report mean/sample SD across5seedmeans. Seed95%CI uses t(df4). Conditional domain bootstrap uses2,000draws, seed20261022; trained models fixed, no retraining variation. Group-aware weights are drawn within held-out folds; session-stratified weights are shared across folds. Paired differences use matched seeds/domain draws. Historical exploratory cohort reuse limits claims of independent external validation.
 
-Code: [MIT](LICENSE). Data, results, metadata, configurations and documentation: [CC BY-NC 4.0](DATA_LICENSE.md). Cite the paper title and the exact repository tag/dataset version; publication DOI is not supplied until assigned.
+## Optional PCAP Timing
+
+With separately authorized private captures, provide an external CSV with `index,source_path,client_ip` covering the timing samples. Do not commit it. Install TShark, then run:
+
+```console
+python -m darkmirror_repro benchmark --out artifacts/rerun --private-manifest PRIVATE_CSV --tshark TSHARK_PATH
+```
+
+Reference filter: `(tcp or tls or quic) and not (dns or icmp or icmpv6)`; outerTCP or QUIC/UDP only, known client IPv4, capture order, <=20seconds. Fast PCAPNG parser candidates are corpus-specific, not general QUIC dissection; every supplied prefix is checked against TShark/public data before timing.
+
+Batch1,50GPUwarmups,3repeats/input; continuous file-read/parse/packing/H2D/forward/D2H/decision/finalsync. Initial sync, model loading, packet collection wait, assertions and output I/O excluded; warm caches. Average repeats per session/checkpoint before mean/SD. Preprocess/Inference/Total boundaries are in `latency.py`. New end-to-end times require private captures and cannot be independently reproduced from public processed sequences alone.
+
+## Availability and License
+
+Processed sequences, anonymous assignment/split metadata and experimental code are public at the v2.0.0 release above. Raw captures are withheld. `release_manifest.json` pins the exact dataset files. Code: [MIT](LICENSE). Data/configurations/README/manifest: [CC BY-NC4.0](DATA_LICENSE.md). Cite the paper and this release URL.

@@ -78,6 +78,24 @@ def verify(root=ROOT):
     assert np.isin(d['prefix'][:, :526], [-1, 1]).all()
     assert np.bincount(d['y']).tolist() == [2300, 2300]
     assert len(np.unique(d['groups'])) == 44
+    sessions = csv(root / 'data/metadata/sessions.csv')
+    assert np.array_equal(sessions['index'], np.arange(4600))
+    assert np.array_equal(sessions.label, d['y'])
+    assert np.array_equal(sessions.domain_id, d['groups'])
+    assert sessions.site_id.nunique() == 46 and (sessions.groupby('site_id').size() == 100).all()
+    from .features import light_features
+    with np.load(root / 'data/processed/light_statistics_526.npz') as data:
+        recomputed = np.stack([light_features(q[:526], t[:526])
+                              for q, t in zip(d['prefix'], d['relative_times_s'])])
+        assert np.array_equal(recomputed, data['light'])
+    spec = read_json(root / 'configs/experiment.json')
+    choices = read_json(root / 'configs/selected_configurations.json')
+    assert len(choices) == 100
+    for kind in KINDS:
+        for fold in range(1, 6):
+            for model in spec['models']:
+                assert len(spec['grids'][model]) == 12
+                assert choices[f'{kind}/cv_{fold}/{model}']['configuration'] in spec['grids'][model]
     for i, count in enumerate(d['retained_count']):
         stop = min(int(count), 1276)
         assert (d['prefix'][i, :stop] != 0).all() and (d['prefix'][i, stop:] == 0).all()

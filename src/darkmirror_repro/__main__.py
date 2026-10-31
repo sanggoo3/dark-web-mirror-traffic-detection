@@ -10,9 +10,8 @@ def main():
     parser.add_argument('--root', type=Path, default=ROOT)
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('verify')
-    report = sub.add_parser('reproduce')
-    report.add_argument('--out', type=Path)
-    report.add_argument('--skip-bootstrap', action='store_true')
+    descriptive = sub.add_parser('descriptives')
+    descriptive.add_argument('--out', type=Path)
     for name in ['tune', 'train', 'evaluate', 'summarize', 'benchmark']:
         task = sub.add_parser(name)
         task.add_argument('--out', type=Path, required=True)
@@ -29,9 +28,10 @@ def main():
     args = parser.parse_args()
     if args.command == 'verify':
         result = verify(args.root)
-    elif args.command == 'reproduce':
-        from .reproduce import reproduce
-        result = reproduce(args.root, args.out, not args.skip_bootstrap)
+    elif args.command == 'descriptives':
+        from .reproduce import descriptives
+        descriptives(args.root, args.out)
+        result = dict(status='completed')
     elif args.command == 'benchmark':
         from .latency import benchmark
         result = benchmark(args.out, args.private_manifest, args.root, args.tshark)
