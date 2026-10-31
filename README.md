@@ -2,7 +2,7 @@
 
 Data and code supporting **Detecting Dark Web Mirror Sites on the ClearNET: An Encrypted Traffic Classification Approach** (revised Korean manuscript).
 
-**Use release [`v2.0.0`](https://github.com/sanggoo3/dark-web-mirror-traffic-detection/releases/tag/v2.0.0) with dataset `direction526-20261101`.** This is the reproducibility version for the revised manuscript.
+**Use release [`v2.0.1`](https://github.com/sanggoo3/dark-web-mirror-traffic-detection/releases/tag/v2.0.1) with dataset `direction526-20261101`.** This is the reproducibility version for the revised manuscript.
 
 ## Availability
 
@@ -15,7 +15,7 @@ The primary input is the **first 526 eligible packet directions within a 20-seco
 | Location | Contents |
 | --- | --- |
 | `data/processed/` | Compressed numeric arrays; no raw network payload |
-| `data/metadata/` | Anonymous sessions, 46 sites / 44 domain groups, timing sample membership |
+| `data/metadata/` | Anonymous session/site/group assignments and timing sample membership |
 | `data/splits/` | Exact outer and inner assignments for both five-fold protocols |
 | `configs/` | All 12-candidate grids, 100 fold/model winners, feature scalers and provenance |
 | `src/darkmirror_repro/` | Models, tuning/training, locked test evaluation, preprocessing, statistics and timing |
@@ -24,6 +24,8 @@ The primary input is the **first 526 eligible packet directions within a 20-seco
 | `docs/` | Protocol, limitations, corrections, checks and availability wording |
 
 Only experiments reported in this manuscript are included. Historical fixed holdout, masked/shuffled controls, statistics-only and whole-session volume-fusion experiments are excluded. See [EXPERIMENTS](docs/EXPERIMENTS.md) for the exact table-to-command mapping.
+
+For a Korean walkthrough of the modules and execution flow, see [CODE_STRUCTURE_ko](docs/CODE_STRUCTURE_ko.md).
 
 ## Install
 
@@ -66,6 +68,6 @@ Recorded timing can be reaggregated publicly. New end-to-end PCAP preprocessing 
 
 ## Version and Licensing
 
-`data/DATASET_VERSION.json` identifies every data file by SHA-256; `release_manifest.json` identifies the entire snapshot (excluding itself). Git tag `v2.0.0` pins source and dataset together. Cite this release rather than the changing default branch.
+`data/DATASET_VERSION.json` identifies every data file by SHA-256; `release_manifest.json` identifies the entire snapshot (excluding itself). Git tag `v2.0.1` pins source and dataset together. Cite this release rather than the changing default branch.
 
 Code: [MIT](LICENSE). Data, results, metadata, configurations and documentation: [CC BY-NC 4.0](DATA_LICENSE.md). Cite the paper title and the exact repository tag/dataset version; publication DOI is not supplied until assigned.

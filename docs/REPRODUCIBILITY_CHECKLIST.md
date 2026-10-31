@@ -5,7 +5,7 @@ The release is limited to experiments in the revised manuscript. The original so
 | Check | Scope |
 | --- | --- |
 | Numerical input identity | Group-aware and session-stratified sources have identical canonical arrays |
-| Metadata | 4600 aligned sessions,46 site labels,44 domain groups; no public reverse mapping |
+| Metadata | Aligned anonymous sessions, site labels and group assignments; no public reverse mapping |
 | Input/feature identity | Included526 and post506 slices audited; all4600 light16 vectors recomputed exactly |
 | Splits | Outer/inner session disjointness, group-aware domain disjointness, each session tested once per seed |
 | HPO | All7200 trial records and100 configuration choices independently ranked |

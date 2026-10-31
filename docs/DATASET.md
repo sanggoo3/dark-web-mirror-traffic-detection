@@ -4,11 +4,11 @@ This is the corrected protocol-filter cohort used for the revised manuscript's 5
 
 ## Cohort and Labels
 
-| Label | Class | Sessions | Site labels | Domain groups |
-| --- | --- | ---: | ---: | ---: |
-| 0 | Clear web | 2300 | 23 | 21 |
-| 1 | Dark mirror web | 2300 | 23 | 23 |
-| Total | | 4600 | 46 | 44 |
+| Label | Class | Sessions | Site labels |
+| --- | --- | ---: | ---: |
+| 0 | Clear web | 2300 | 23 |
+| 1 | Dark mirror web | 2300 | 23 |
+| Total | | 4600 | 46 |
 
 Each site label has 100 sessions. Aliases mapping to the same registrable domain share one anonymous domain ID. Group-aware splits hold all sessions from a domain together. The anonymous IDs preserve the verified original assignments; spelling and URL-to-domain reverse mappings are deliberately not public. All arrays and CSVs use the same zero-based `index`. `session_id` is a public pseudonym, not a filename or capture identifier.
 
@@ -47,7 +47,7 @@ CNN/TCN/Transformer inputs are float32 `(N,1,L)`; GRU/BiGRU/LSTM receive the sam
 ## Metadata and Splits
 
 - `sessions.csv`: row index, anonymous session/site/domain IDs, class and eligible 20-second count.
-- `sites_and_domain_groups.csv`: 46 pseudonymous site labels and their 44-group assignment, including aliases.
+- `sites_and_domain_groups.csv`: pseudonymous site-to-group assignments, including aliases.
 - `data/splits/{group_aware,session_stratified}/split_assignments.csv`: exact ordered outer `fit`, `validation`, `test` indices.
 - `inner_split_assignments.csv`: exact ordered inner `fit`/`validation` indices, all inside the outer fit subset.
 - `latency_sample_assignments.csv`: fixed representative input indices used for reported timing.

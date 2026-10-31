@@ -103,4 +103,4 @@ def verify(root=ROOT):
             rows.append(dict(split=kind, fold=fold, **{k: len(v) for k, v in p.items()}))
         assert np.array_equal(np.sort(tested), np.arange(4600))
     return dict(status='passed', dataset_id=manifest['dataset_id'], checked_files=len(manifest['files']),
-                sessions=4600, sites=46, domain_groups=44, split_counts=rows)
+                sessions=4600, sites=46, split_counts=rows)
