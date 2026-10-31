@@ -1,0 +1,2022 @@
+{
+  "group_aware/cv_1/TCN": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9516671666666667,
+    "sd_validation_auc": 0.00793635870535097,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_1/ResNet1D": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          64
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.0,
+      "weight_decay": 0.0001,
+      "batch_size": 128
+    },
+    "mean_validation_auc": 0.9609771666666665,
+    "sd_validation_auc": 0.011698579886749768,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_1/InceptionTimeLite": {
+    "configuration": {
+      "config_id": "0_0.001_1",
+      "architecture": {
+        "channels": 64,
+        "depth": 3,
+        "kernels": [
+          9,
+          19,
+          39
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9470901111111112,
+    "sd_validation_auc": 0.008824406915334714,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_1/1D-CNN": {
+    "configuration": {
+      "config_id": "1_0.001_2",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.5,
+      "weight_decay": 0.01,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9474507777777778,
+    "sd_validation_auc": 0.011221875093201073,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_1/FCN-1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9515641111111112,
+    "sd_validation_auc": 0.008164621223211642,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_1/GRU": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8451133888888888,
+    "sd_validation_auc": 0.08316964295874542,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_1/BiGRU": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "concatenated_final_forward_backward"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.891372,
+    "sd_validation_auc": 0.025591910388506257,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_1/LSTM": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.7428933888888888,
+    "sd_validation_auc": 0.07849899939982725,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_1/Transformer Encoder": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 128,
+        "readout": "temporal_mean"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.7448817777777778,
+    "sd_validation_auc": 0.11569685458504941,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_1/ROCKET-style": {
+    "configuration": {
+      "config_id": "2048_0.01_None",
+      "n_kernels": 2048,
+      "kernel_sizes": [
+        7,
+        9,
+        11,
+        15
+      ],
+      "C": 0.01,
+      "class_weight": null,
+      "feature_scaler": "StandardScaler fitted on training only",
+      "classifier": "LogisticRegression",
+      "solver": "lbfgs",
+      "max_iter": 3000
+    },
+    "mean_validation_auc": 0.9408126666666666,
+    "sd_validation_auc": 0.017395336488713234,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_2/TCN": {
+    "configuration": {
+      "config_id": "1_0.001_1",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9133555555555555,
+    "sd_validation_auc": 0.05580025908608379,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_2/ResNet1D": {
+    "configuration": {
+      "config_id": "0_0.001_1",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          64
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.2,
+      "weight_decay": 0.001,
+      "batch_size": 128
+    },
+    "mean_validation_auc": 0.9147038888888889,
+    "sd_validation_auc": 0.0420743084140253,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_2/InceptionTimeLite": {
+    "configuration": {
+      "config_id": "1_0.001_1",
+      "architecture": {
+        "channels": 128,
+        "depth": 3,
+        "kernels": [
+          9,
+          19,
+          39
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8816366666666666,
+    "sd_validation_auc": 0.049564947605249245,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_2/1D-CNN": {
+    "configuration": {
+      "config_id": "1_0.001_2",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.5,
+      "weight_decay": 0.01,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8714138888888888,
+    "sd_validation_auc": 0.05674455382253452,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_2/FCN-1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8818472222222221,
+    "sd_validation_auc": 0.038388545595827855,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_2/GRU": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.6882233333333333,
+    "sd_validation_auc": 0.1367888900784303,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_2/BiGRU": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "concatenated_final_forward_backward"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.7251369444444444,
+    "sd_validation_auc": 0.17192024642715611,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_2/LSTM": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.5798402777777777,
+    "sd_validation_auc": 0.053391564797953574,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_2/Transformer Encoder": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 128,
+        "readout": "temporal_mean"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.7559419444444444,
+    "sd_validation_auc": 0.07993048273633133,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_2/ROCKET-style": {
+    "configuration": {
+      "config_id": "2048_0.01_balanced",
+      "n_kernels": 2048,
+      "kernel_sizes": [
+        7,
+        9,
+        11,
+        15
+      ],
+      "C": 0.01,
+      "class_weight": "balanced",
+      "feature_scaler": "StandardScaler fitted on training only",
+      "classifier": "LogisticRegression",
+      "solver": "lbfgs",
+      "max_iter": 3000
+    },
+    "mean_validation_auc": 0.8093566666666666,
+    "sd_validation_auc": 0.06888989917897177,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_3/TCN": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9543280555555556,
+    "sd_validation_auc": 0.02385398639912473,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_3/ResNet1D": {
+    "configuration": {
+      "config_id": "1_0.0003_1",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.2,
+      "weight_decay": 0.001,
+      "batch_size": 128
+    },
+    "mean_validation_auc": 0.9546866666666666,
+    "sd_validation_auc": 0.01501971563571621,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_3/InceptionTimeLite": {
+    "configuration": {
+      "config_id": "1_0.001_1",
+      "architecture": {
+        "channels": 128,
+        "depth": 3,
+        "kernels": [
+          9,
+          19,
+          39
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9434138888888889,
+    "sd_validation_auc": 0.01079981654508114,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_3/1D-CNN": {
+    "configuration": {
+      "config_id": "1_0.001_2",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.5,
+      "weight_decay": 0.01,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.928053888888889,
+    "sd_validation_auc": 0.02241194239355113,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_3/FCN-1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9369777777777778,
+    "sd_validation_auc": 0.016865675948066462,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_3/GRU": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.844665,
+    "sd_validation_auc": 0.049410901035207934,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_3/BiGRU": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "concatenated_final_forward_backward"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8404522222222223,
+    "sd_validation_auc": 0.09744784053628472,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_3/LSTM": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.6598,
+    "sd_validation_auc": 0.08447998619002417,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_3/Transformer Encoder": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 128,
+        "readout": "temporal_mean"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.6091922222222222,
+    "sd_validation_auc": 0.17380770752525673,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_3/ROCKET-style": {
+    "configuration": {
+      "config_id": "2048_0.01_None",
+      "n_kernels": 2048,
+      "kernel_sizes": [
+        7,
+        9,
+        11,
+        15
+      ],
+      "C": 0.01,
+      "class_weight": null,
+      "feature_scaler": "StandardScaler fitted on training only",
+      "classifier": "LogisticRegression",
+      "solver": "lbfgs",
+      "max_iter": 3000
+    },
+    "mean_validation_auc": 0.9017344444444445,
+    "sd_validation_auc": 0.03540389838338063,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_4/TCN": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9320938888888889,
+    "sd_validation_auc": 0.0322819055211131,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_4/ResNet1D": {
+    "configuration": {
+      "config_id": "1_0.0003_1",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.2,
+      "weight_decay": 0.001,
+      "batch_size": 128
+    },
+    "mean_validation_auc": 0.9351963888888889,
+    "sd_validation_auc": 0.027549233875547797,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_4/InceptionTimeLite": {
+    "configuration": {
+      "config_id": "0_0.001_1",
+      "architecture": {
+        "channels": 64,
+        "depth": 3,
+        "kernels": [
+          9,
+          19,
+          39
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.926665,
+    "sd_validation_auc": 0.028115119439744717,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_4/1D-CNN": {
+    "configuration": {
+      "config_id": "1_0.001_2",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.5,
+      "weight_decay": 0.01,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9011205555555556,
+    "sd_validation_auc": 0.03437446781271538,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_4/FCN-1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9095544444444444,
+    "sd_validation_auc": 0.029095380898514205,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_4/GRU": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8136016666666667,
+    "sd_validation_auc": 0.11913263968740426,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_4/BiGRU": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "readout": "concatenated_final_forward_backward"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8388116666666666,
+    "sd_validation_auc": 0.08041107360860753,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_4/LSTM": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.6786775,
+    "sd_validation_auc": 0.16364095884231833,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_4/Transformer Encoder": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 128,
+        "readout": "temporal_mean"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.7848138888888889,
+    "sd_validation_auc": 0.08968947148459054,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_4/ROCKET-style": {
+    "configuration": {
+      "config_id": "2048_0.01_None",
+      "n_kernels": 2048,
+      "kernel_sizes": [
+        7,
+        9,
+        11,
+        15
+      ],
+      "C": 0.01,
+      "class_weight": null,
+      "feature_scaler": "StandardScaler fitted on training only",
+      "classifier": "LogisticRegression",
+      "solver": "lbfgs",
+      "max_iter": 3000
+    },
+    "mean_validation_auc": 0.8919483333333332,
+    "sd_validation_auc": 0.03141949817478878,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_5/TCN": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9454827777777778,
+    "sd_validation_auc": 0.01613421008866519,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_5/ResNet1D": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.0,
+      "weight_decay": 0.0001,
+      "batch_size": 128
+    },
+    "mean_validation_auc": 0.9541438888888889,
+    "sd_validation_auc": 0.012890471660479609,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_5/InceptionTimeLite": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "channels": 64,
+        "depth": 3,
+        "kernels": [
+          9,
+          19,
+          39
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9249255555555557,
+    "sd_validation_auc": 0.01933822807770101,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_5/1D-CNN": {
+    "configuration": {
+      "config_id": "1_0.001_2",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.5,
+      "weight_decay": 0.01,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9289961111111111,
+    "sd_validation_auc": 0.018287277109347678,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_5/FCN-1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9294772222222223,
+    "sd_validation_auc": 0.023799643266856546,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_5/GRU": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8337597222222222,
+    "sd_validation_auc": 0.1291099314813916,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_5/BiGRU": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "readout": "concatenated_final_forward_backward"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8491805555555555,
+    "sd_validation_auc": 0.0978511458041508,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_5/LSTM": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.7180338888888889,
+    "sd_validation_auc": 0.08247965221574126,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_5/Transformer Encoder": {
+    "configuration": {
+      "config_id": "0_0.0003_0",
+      "architecture": {
+        "d_model": 32,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 64,
+        "readout": "temporal_mean"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.7437461111111111,
+    "sd_validation_auc": 0.07501393445862552,
+    "selection_input_length": 526
+  },
+  "group_aware/cv_5/ROCKET-style": {
+    "configuration": {
+      "config_id": "2048_0.01_balanced",
+      "n_kernels": 2048,
+      "kernel_sizes": [
+        7,
+        9,
+        11,
+        15
+      ],
+      "C": 0.01,
+      "class_weight": "balanced",
+      "feature_scaler": "StandardScaler fitted on training only",
+      "classifier": "LogisticRegression",
+      "solver": "lbfgs",
+      "max_iter": 3000
+    },
+    "mean_validation_auc": 0.9182388888888888,
+    "sd_validation_auc": 0.014373010921966292,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_1/TCN": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9773452268431001,
+    "sd_validation_auc": 0.0037713882403476668,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_1/ResNet1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.0,
+      "weight_decay": 0.0001,
+      "batch_size": 128
+    },
+    "mean_validation_auc": 0.9791639317720366,
+    "sd_validation_auc": 0.0013501667961784342,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_1/InceptionTimeLite": {
+    "configuration": {
+      "config_id": "1_0.001_1",
+      "architecture": {
+        "channels": 128,
+        "depth": 3,
+        "kernels": [
+          9,
+          19,
+          39
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9679940751242736,
+    "sd_validation_auc": 0.007302166056213142,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_1/1D-CNN": {
+    "configuration": {
+      "config_id": "1_0.001_2",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.5,
+      "weight_decay": 0.01,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9600300619617728,
+    "sd_validation_auc": 0.006011595838367776,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_1/FCN-1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9604353733459358,
+    "sd_validation_auc": 0.006866861840099225,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_1/GRU": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.821790437058041,
+    "sd_validation_auc": 0.088396691509835,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_1/BiGRU": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "readout": "concatenated_final_forward_backward"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8433679352201918,
+    "sd_validation_auc": 0.13082194903416855,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_1/LSTM": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.6249721040747742,
+    "sd_validation_auc": 0.08600386388416006,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_1/Transformer Encoder": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 128,
+        "readout": "temporal_mean"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8027394345550655,
+    "sd_validation_auc": 0.020450570465233294,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_1/ROCKET-style": {
+    "configuration": {
+      "config_id": "2048_0.01_None",
+      "n_kernels": 2048,
+      "kernel_sizes": [
+        7,
+        9,
+        11,
+        15
+      ],
+      "C": 0.01,
+      "class_weight": null,
+      "feature_scaler": "StandardScaler fitted on training only",
+      "classifier": "LogisticRegression",
+      "solver": "lbfgs",
+      "max_iter": 3000
+    },
+    "mean_validation_auc": 0.9465842260029405,
+    "sd_validation_auc": 0.00959531446568791,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_2/TCN": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9833499614926836,
+    "sd_validation_auc": 0.0023902375754421747,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_2/ResNet1D": {
+    "configuration": {
+      "config_id": "1_0.0003_1",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.2,
+      "weight_decay": 0.001,
+      "batch_size": 128
+    },
+    "mean_validation_auc": 0.9794056964573269,
+    "sd_validation_auc": 0.0021568770800055835,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_2/InceptionTimeLite": {
+    "configuration": {
+      "config_id": "0_0.001_1",
+      "architecture": {
+        "channels": 64,
+        "depth": 3,
+        "kernels": [
+          9,
+          19,
+          39
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9697126829097528,
+    "sd_validation_auc": 0.004345662438520967,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_2/1D-CNN": {
+    "configuration": {
+      "config_id": "1_0.0003_2",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.5,
+      "weight_decay": 0.01,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9627086177623748,
+    "sd_validation_auc": 0.004574112097694217,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_2/FCN-1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9619351895610165,
+    "sd_validation_auc": 0.0021898639139566758,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_2/GRU": {
+    "configuration": {
+      "config_id": "0_0.0003_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8397876846600855,
+    "sd_validation_auc": 0.01870033239236409,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_2/BiGRU": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "concatenated_final_forward_backward"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8501594990548204,
+    "sd_validation_auc": 0.11739513197451226,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_2/LSTM": {
+    "configuration": {
+      "config_id": "0_0.0003_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.6414033510116922,
+    "sd_validation_auc": 0.08413710453991875,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_2/Transformer Encoder": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 128,
+        "readout": "temporal_mean"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8011583919694742,
+    "sd_validation_auc": 0.005723837160764494,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_2/ROCKET-style": {
+    "configuration": {
+      "config_id": "2048_0.01_None",
+      "n_kernels": 2048,
+      "kernel_sizes": [
+        7,
+        9,
+        11,
+        15
+      ],
+      "C": 0.01,
+      "class_weight": null,
+      "feature_scaler": "StandardScaler fitted on training only",
+      "classifier": "LogisticRegression",
+      "solver": "lbfgs",
+      "max_iter": 3000
+    },
+    "mean_validation_auc": 0.9462221259539313,
+    "sd_validation_auc": 0.002834898765442602,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_3/TCN": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9829988010221942,
+    "sd_validation_auc": 0.002463824396306477,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_3/ResNet1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.0,
+      "weight_decay": 0.0001,
+      "batch_size": 128
+    },
+    "mean_validation_auc": 0.9803722082195617,
+    "sd_validation_auc": 0.003111792598062863,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_3/InceptionTimeLite": {
+    "configuration": {
+      "config_id": "1_0.001_1",
+      "architecture": {
+        "channels": 128,
+        "depth": 3,
+        "kernels": [
+          9,
+          19,
+          39
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9704182857242877,
+    "sd_validation_auc": 0.004182692247568964,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_3/1D-CNN": {
+    "configuration": {
+      "config_id": "1_0.001_2",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.5,
+      "weight_decay": 0.01,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9652077644752503,
+    "sd_validation_auc": 0.003946095977151023,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_3/FCN-1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9606995641671917,
+    "sd_validation_auc": 0.004333883713006275,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_3/GRU": {
+    "configuration": {
+      "config_id": "0_0.0003_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.7973464958342085,
+    "sd_validation_auc": 0.08852967068870435,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_3/BiGRU": {
+    "configuration": {
+      "config_id": "0_0.0003_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "concatenated_final_forward_backward"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8338223324931736,
+    "sd_validation_auc": 0.02124817518827345,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_3/LSTM": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.6018053586431422,
+    "sd_validation_auc": 0.0526255209344669,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_3/Transformer Encoder": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 128,
+        "readout": "temporal_mean"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.7955617035986838,
+    "sd_validation_auc": 0.016413031965485242,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_3/ROCKET-style": {
+    "configuration": {
+      "config_id": "2048_0.01_None",
+      "n_kernels": 2048,
+      "kernel_sizes": [
+        7,
+        9,
+        11,
+        15
+      ],
+      "C": 0.01,
+      "class_weight": null,
+      "feature_scaler": "StandardScaler fitted on training only",
+      "classifier": "LogisticRegression",
+      "solver": "lbfgs",
+      "max_iter": 3000
+    },
+    "mean_validation_auc": 0.9490893894840019,
+    "sd_validation_auc": 0.004492427554123967,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_4/TCN": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9806730466288595,
+    "sd_validation_auc": 0.0022795374926519924,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_4/ResNet1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.0,
+      "weight_decay": 0.0001,
+      "batch_size": 128
+    },
+    "mean_validation_auc": 0.9798345279353078,
+    "sd_validation_auc": 0.0033100337940780017,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_4/InceptionTimeLite": {
+    "configuration": {
+      "config_id": "0_0.001_1",
+      "architecture": {
+        "channels": 64,
+        "depth": 3,
+        "kernels": [
+          9,
+          19,
+          39
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9721702592242526,
+    "sd_validation_auc": 0.003217711529057878,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_4/1D-CNN": {
+    "configuration": {
+      "config_id": "1_0.001_2",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.5,
+      "weight_decay": 0.01,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9633835897570538,
+    "sd_validation_auc": 0.001644096695831276,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_4/FCN-1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9604742088496815,
+    "sd_validation_auc": 0.004632169231422,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_4/GRU": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8262089328222362,
+    "sd_validation_auc": 0.12251588796914448,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_4/BiGRU": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "readout": "concatenated_final_forward_backward"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8637891199327873,
+    "sd_validation_auc": 0.1470285000379463,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_4/LSTM": {
+    "configuration": {
+      "config_id": "0_0.0003_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.5975011814744802,
+    "sd_validation_auc": 0.04021333212164913,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_4/Transformer Encoder": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 128,
+        "readout": "temporal_mean"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8138329876426521,
+    "sd_validation_auc": 0.021090450927457188,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_4/ROCKET-style": {
+    "configuration": {
+      "config_id": "2048_0.01_None",
+      "n_kernels": 2048,
+      "kernel_sizes": [
+        7,
+        9,
+        11,
+        15
+      ],
+      "C": 0.01,
+      "class_weight": null,
+      "feature_scaler": "StandardScaler fitted on training only",
+      "classifier": "LogisticRegression",
+      "solver": "lbfgs",
+      "max_iter": 3000
+    },
+    "mean_validation_auc": 0.94747361373661,
+    "sd_validation_auc": 0.007953061907063222,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_5/TCN": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9809284857872996,
+    "sd_validation_auc": 0.004835701608651728,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_5/ResNet1D": {
+    "configuration": {
+      "config_id": "1_0.0003_1",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.2,
+      "weight_decay": 0.001,
+      "batch_size": 128
+    },
+    "mean_validation_auc": 0.9791568210459988,
+    "sd_validation_auc": 0.0032019193632193076,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_5/InceptionTimeLite": {
+    "configuration": {
+      "config_id": "0_0.001_1",
+      "architecture": {
+        "channels": 64,
+        "depth": 3,
+        "kernels": [
+          9,
+          19,
+          39
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.3,
+      "weight_decay": 0.001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9717321291045299,
+    "sd_validation_auc": 0.003499781507144636,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_5/1D-CNN": {
+    "configuration": {
+      "config_id": "1_0.001_2",
+      "architecture": {
+        "channels": [
+          32,
+          64,
+          128
+        ],
+        "kernel_size": 5,
+        "fc_hidden": 64
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.5,
+      "weight_decay": 0.01,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9626118024924736,
+    "sd_validation_auc": 0.0035420175373115513,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_5/FCN-1D": {
+    "configuration": {
+      "config_id": "1_0.001_0",
+      "architecture": {
+        "channels": [
+          64,
+          128,
+          128
+        ],
+        "kernels": [
+          8,
+          5,
+          3
+        ]
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9585039907582441,
+    "sd_validation_auc": 0.007951898222245242,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_5/GRU": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.8600116834698593,
+    "sd_validation_auc": 0.022785014354059257,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_5/BiGRU": {
+    "configuration": {
+      "config_id": "0_0.001_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "concatenated_final_forward_backward"
+      },
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.9079784534061472,
+    "sd_validation_auc": 0.014933673459546383,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_5/LSTM": {
+    "configuration": {
+      "config_id": "0_0.0003_0",
+      "architecture": {
+        "hidden_size": 32,
+        "num_layers": 2,
+        "readout": "last_hidden"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.6032001549044318,
+    "sd_validation_auc": 0.03415603789773136,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_5/Transformer Encoder": {
+    "configuration": {
+      "config_id": "1_0.0003_0",
+      "architecture": {
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 128,
+        "readout": "temporal_mean"
+      },
+      "learning_rate": 0.0003,
+      "dropout": 0.1,
+      "weight_decay": 0.0001,
+      "batch_size": 64
+    },
+    "mean_validation_auc": 0.812766925715886,
+    "sd_validation_auc": 0.014908205259204778,
+    "selection_input_length": 526
+  },
+  "session_stratified/cv_5/ROCKET-style": {
+    "configuration": {
+      "config_id": "2048_0.01_None",
+      "n_kernels": 2048,
+      "kernel_sizes": [
+        7,
+        9,
+        11,
+        15
+      ],
+      "C": 0.01,
+      "class_weight": null,
+      "feature_scaler": "StandardScaler fitted on training only",
+      "classifier": "LogisticRegression",
+      "solver": "lbfgs",
+      "max_iter": 3000
+    },
+    "mean_validation_auc": 0.9501335722537282,
+    "sd_validation_auc": 0.00798976164768662,
+    "selection_input_length": 526
+  }
+}

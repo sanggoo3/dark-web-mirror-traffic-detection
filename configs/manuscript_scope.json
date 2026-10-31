@@ -1,0 +1,22 @@
+{
+  "title": "Detecting Dark Web Mirror Sites on the ClearNET: An Encrypted Traffic Classification Approach",
+  "manuscript_sha256": "8e314eb431c00996d7a3efdf1ab4099c6e05c83bfd789faa0bab8231f80aa2ae",
+  "pages": 23,
+  "tables": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "figures_requiring_data": [
+    "Figure3"
+  ],
+  "source_canonical_sha256": "d0af74cb9714dcac39e2248402097ec17f33977e4c2c250e3f1b10a65b2e2cbb",
+  "table3a_discrepancy": "Historical descriptive numbers differ from corrected final cohort. Publish corrected counts; retain historical fixed lengths.",
+  "raw_pcap_public": false,
+  "site_and_network_identifiers_anonymized": true
+}

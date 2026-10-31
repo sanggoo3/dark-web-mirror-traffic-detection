@@ -1,2 +1,2 @@
-"""Utilities for reproducing the dark mirror direction-only experiments."""
-
+"""Manuscript-specific, anonymized direction-sequence experiments."""
+__version__ = '2026.11.1'

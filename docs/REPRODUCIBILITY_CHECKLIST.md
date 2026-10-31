@@ -1,54 +1,21 @@
-# Reproducibility Checklist
+# Release Checks
 
-## Included
+The release is limited to experiments in the revised manuscript. The original source/results were read without modification during packaging. The old `v1.0.0` Git tag is retained.
 
-- Processed direction-only sequence datasets used by the paper experiments
-- Sanitized and anonymized metadata without local raw-capture paths
-- Synthetic site IDs, sample IDs, and redacted client IP values
-- Final paper-ready tables in CSV and Markdown
-- Backing result CSV files for initial-window, ablation, sequence-length, timing, and model-comparison tables
-- TCN hyperparameter tuning outputs
-- ResNet1D hyperparameter tuning outputs
-- Scripts for table regeneration, dataset inspection, reference retraining, and tuning reruns
-- Environment version record
-- SHA-256 file manifest
+| Check | Scope |
+| --- | --- |
+| Numerical input identity | Group-aware and session-stratified sources have identical canonical arrays |
+| Metadata | 4600 aligned sessions,46 site labels,44 domain groups; no public reverse mapping |
+| Input/feature identity | Included526 and post506 slices audited; all4600 light16 vectors recomputed exactly |
+| Splits | Outer/inner session disjointness, group-aware domain disjointness, each session tested once per seed |
+| HPO | All7200 trial records and100 configuration choices independently ranked |
+| Thresholds/results | All700 final-run thresholds reproduced from validation only; all test metrics recalculated |
+| Intervals | Five-seed statistics and2000-draw conditional domain intervals recalculated against references |
+| Paired result | Group-aware ResNet1D-minus-TCN seed/domain intervals recalculated |
+| Latency | Original three-repeat session/checkpoint summaries reaggregated, not remeasured from withheld captures |
+| Original checkpoints | 28 split/model/condition combinations replayed on8inputs each, including all10families and paper variants |
+| Training smoke | Small TCN, ROCKET-style and ResNet1D+light16 fits exercised without full retraining |
+| Privacy | Public text/archives scanned for source paths, addresses, original site identifiers and excluded raw files |
+| Integrity | Per-data-file SHA-256 and release-wide SHA-256 manifests |
 
-## Not Included
-
-- Raw `pcap` or `pcapng` captures
-- Local absolute raw-capture paths
-- Original URL/site names and original capture file names
-- Browser automation and traffic-collection tooling
-- Payload, URL-content, page-content, packet-size, or timing features
-- Intermediate files not needed for table reproduction
-- Figure assets
-
-## Final Experimental Settings
-
-| Item | Value |
-|---|---|
-| Task | binary session-level Clear Web vs Dark Web Mirror site classification |
-| Positive class | Dark Web Mirror site |
-| Input feature | direction-only sequence |
-| Direction values | `+1`, `-1`, `0` padding |
-| Final sequence construction | first 526 packet directions, then remove first 20 handshake packets |
-| Final length | `seq_len=506` after removal, not before removal |
-| Split | sample-level stratified split |
-| Random seed | 42 |
-| Optimizer | Adam |
-| Loss | BCEWithLogitsLoss |
-| Early stopping | validation ROC-AUC, patience 10 |
-| Threshold selection | validation F1-score |
-| Main model-selection metric | ROC-AUC |
-| Final candidates | TCN and ResNet1D |
-
-## Verification
-
-Run these commands from the repository root:
-
-```bash
-python scripts/inspect_dataset.py
-python scripts/reproduce_tables.py
-```
-
-After `reproduce_tables.py`, compare `results/reproduced_tables/` with `results/paper_tables/`. Small retraining differences can occur only when rerunning training or tuning, not when regenerating packaged tables.
+See `validation_checks.json` and `results/tables/verification.json` for recorded outcomes. Checkpoint replay uses private locally retained weights; these weights are not publicly distributed. Public users can run unit tests and full result reaggregation, or retrain checkpoints themselves. Neither these checks nor new group-aware splits eliminate the cohort's historical exploratory reuse. Numerical agreement with recorded values is distinct from independent replication on new data.

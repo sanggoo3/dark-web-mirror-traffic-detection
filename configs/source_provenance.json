@@ -1,0 +1,26 @@
+[
+  {
+    "release_file": "src/darkmirror_repro/models.py",
+    "original_module": "frozen_models.py",
+    "original_sha256": "77c28c2c0f399a171e41f5e05fe6e03a079b90716afe53af25b1903576cc42d9",
+    "adaptation": "Models SEQ_LEN is set to526 by the public engine."
+  },
+  {
+    "release_file": "src/darkmirror_repro/features.py",
+    "original_module": "features526.py",
+    "original_sha256": "5dc5ff64b39050931134b5ebab71b7c7b66c53ef35f85322f01bd970788b38c1",
+    "adaptation": "Models SEQ_LEN is set to526 by the public engine."
+  },
+  {
+    "release_file": "src/darkmirror_repro/direct_parser.py",
+    "original_module": "direct_parser.py",
+    "original_sha256": "1b64e1418b0fa34293a891f28d452bbe3774d16f82f09e364d35e6a57ffa8a77",
+    "adaptation": "Models SEQ_LEN is set to526 by the public engine."
+  },
+  {
+    "release_file": "src/darkmirror_repro/engine_core.py",
+    "original_module": "engine.py",
+    "original_sha256": "d64265bf867503bdd37fb2ccfd2e927b09145f0d06c5d6096eff0fca95f22ace",
+    "adaptation": "AST-selected original neural training and scoring methods; unused ROCKET branch removed; portable subclass supplies inputs and random-feature fitting."
+  }
+]

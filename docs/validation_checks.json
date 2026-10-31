@@ -1,0 +1,208 @@
+{
+  "status": "passed",
+  "checkpoint_replays": [
+    {
+      "split": "group_aware",
+      "model": "TCN",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "group_aware",
+      "model": "ResNet1D",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "group_aware",
+      "model": "InceptionTimeLite",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "group_aware",
+      "model": "1D-CNN",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "group_aware",
+      "model": "FCN-1D",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "group_aware",
+      "model": "GRU",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "group_aware",
+      "model": "BiGRU",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "group_aware",
+      "model": "LSTM",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "group_aware",
+      "model": "Transformer Encoder",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "group_aware",
+      "model": "ROCKET-style",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "TCN",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "ResNet1D",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "InceptionTimeLite",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "1D-CNN",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "FCN-1D",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "GRU",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "BiGRU",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "LSTM",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "Transformer Encoder",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "ROCKET-style",
+      "condition": "included_526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "TCN",
+      "condition": "light_fusion526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "ResNet1D",
+      "condition": "light_fusion526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "TCN",
+      "condition": "included_137",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "TCN",
+      "condition": "included_300",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "TCN",
+      "condition": "included_905",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "TCN",
+      "condition": "included_1276",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "TCN",
+      "condition": "post506_control",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    },
+    {
+      "split": "session_stratified",
+      "model": "TCN",
+      "condition": "only20_padded526",
+      "inputs": 8,
+      "max_probability_error": 0.0
+    }
+  ],
+  "training_smoke": [
+    "TCN:64fit/32validation,original20-50epoch rule",
+    "ROCKET-style:64fit/32validation,FP32",
+    "ResNet1D light16 fusion:64fit/32validation,fit-only scaler"
+  ],
+  "full_retraining_performed": false,
+  "checkpoint_weights_not_published": true
+}

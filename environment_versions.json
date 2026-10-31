@@ -1,11 +1,15 @@
 {
-  "python": "3.12.7 | packaged by Anaconda, Inc.",
+  "python": "3.12.7",
+  "torch": "2.5.1+cu121",
+  "cuda": "12.1",
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
   "numpy": "1.26.4",
   "pandas": "2.2.2",
-  "scikit-learn": "1.8.0",
-  "torch": "2.5.1+cu121",
-  "matplotlib": "3.9.2",
-  "cuda_available": true,
-  "cuda_version": "12.1",
-  "gpu": "NVIDIA GeForce RTX 3060 Ti"
+  "sklearn": "1.8.0",
+  "torch_threads": 2,
+  "cudnn_allow_tf32": true,
+  "matmul_allow_tf32": false,
+  "scipy": "1.13.1",
+  "operating_system": "Windows",
+  "note": "GPU and timing are hardware-specific; ROCKET runtime explicitly uses cudnn TF32=False."
 }

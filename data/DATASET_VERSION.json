@@ -1,0 +1,24 @@
+{
+  "dataset_id": "direction526-20261101",
+  "code_tag": "paper-20261101",
+  "version_date": "2026-11-01",
+  "sessions": 4600,
+  "sites": 46,
+  "domain_groups": 44,
+  "primary_length": 526,
+  "primary_initial20_included": true,
+  "corrected_protocol_filter": true,
+  "identifiers": "Pseudonymous session/site/domain IDs; no public reverse mapping.",
+  "files": {
+    "data/metadata/full20s_direction_descriptives.csv": "c2c7fc61e17f57b56af523353f0a13b778d690fce786270d29e6548e8164d9ea",
+    "data/metadata/latency_sample_assignments.csv": "8e494a1aab7dffcd252181b0cc12ebf46d99cfcf54ec4d6c65e7584ce20c6f6b",
+    "data/metadata/sessions.csv": "c335bf6ab74385e8e9be9dbd4d3dcad025e18c555de1112ba4cad588bc4b619c",
+    "data/metadata/sites_and_domain_groups.csv": "97cc047b77023e5b5eb2712adfff08dc929d59f3337d09b10f04248479d1a7c2",
+    "data/processed/direction_sequences.npz": "5438e405dc21fdacc982a846bfb2d72685af915f57713fde70a9c355be8270f5",
+    "data/processed/light_statistics_526.npz": "1dbd831dc144b208b00b8b99c382da145d4c82aaf258fd4b8f8f74173031871e",
+    "data/splits/group_aware/inner_split_assignments.csv": "8970f5725735b91044054e0e1cfb0120c971888ce680d651f565a00d0423b9d9",
+    "data/splits/group_aware/split_assignments.csv": "8550fa249f9a92a608ac81b7e5b8f4bd0db6e760a899c5f785d3127dcb645cda",
+    "data/splits/session_stratified/inner_split_assignments.csv": "b228d6741cd92af83da80e19089308c0e3a277cbd1deb9c8e48a0e7c066d8e6d",
+    "data/splits/session_stratified/split_assignments.csv": "03d8189aaa28f7330565ee3e42c408d208b886a00d7b21127a62a244dafad576"
+  }
+}

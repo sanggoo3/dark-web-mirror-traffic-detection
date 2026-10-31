@@ -9,7 +9,8 @@ The following non-code materials are licensed under the Creative Commons Attribu
 - `docs/`
 - `README.md`
 - `environment_versions.json`
-- `file_manifest_sha256.csv`
+- `configs/`
+- `release_manifest.json`
 
 License text and terms:
 

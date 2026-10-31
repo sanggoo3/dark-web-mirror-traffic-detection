@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "evaluated_runs": 700,
+  "hpo_trials": 7200,
+  "selected_configurations": 100,
+  "seed_intervals_recalculated": true,
+  "domain_intervals_recalculated": true,
+  "matched_features_exact": true,
+  "thresholds_validation_only": true,
+  "latency_reaggregated": true
+}

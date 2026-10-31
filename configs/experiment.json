@@ -1,0 +1,1963 @@
+{
+  "dataset_id": "direction526-20261101",
+  "code_tag": "paper-20261101",
+  "outer_folds": 5,
+  "inner_folds": 3,
+  "pilot_seeds": [
+    11,
+    23
+  ],
+  "final_seeds": [
+    11,
+    23,
+    71,
+    101,
+    202
+  ],
+  "grids": {
+    "TCN": [
+      {
+        "config_id": "0_0.0003_0",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_1",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_2",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_0",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_1",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_2",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_0",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_1",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_2",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_0",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_1",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_2",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      }
+    ],
+    "ResNet1D": [
+      {
+        "config_id": "0_0.0003_0",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.0,
+        "weight_decay": 0.0001,
+        "batch_size": 128
+      },
+      {
+        "config_id": "0_0.0003_1",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.2,
+        "weight_decay": 0.001,
+        "batch_size": 128
+      },
+      {
+        "config_id": "0_0.0003_2",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.4,
+        "weight_decay": 0.01,
+        "batch_size": 128
+      },
+      {
+        "config_id": "0_0.001_0",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.0,
+        "weight_decay": 0.0001,
+        "batch_size": 128
+      },
+      {
+        "config_id": "0_0.001_1",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.2,
+        "weight_decay": 0.001,
+        "batch_size": 128
+      },
+      {
+        "config_id": "0_0.001_2",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.4,
+        "weight_decay": 0.01,
+        "batch_size": 128
+      },
+      {
+        "config_id": "1_0.0003_0",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.0,
+        "weight_decay": 0.0001,
+        "batch_size": 128
+      },
+      {
+        "config_id": "1_0.0003_1",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.2,
+        "weight_decay": 0.001,
+        "batch_size": 128
+      },
+      {
+        "config_id": "1_0.0003_2",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.4,
+        "weight_decay": 0.01,
+        "batch_size": 128
+      },
+      {
+        "config_id": "1_0.001_0",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.0,
+        "weight_decay": 0.0001,
+        "batch_size": 128
+      },
+      {
+        "config_id": "1_0.001_1",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.2,
+        "weight_decay": 0.001,
+        "batch_size": 128
+      },
+      {
+        "config_id": "1_0.001_2",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.4,
+        "weight_decay": 0.01,
+        "batch_size": 128
+      }
+    ],
+    "InceptionTimeLite": [
+      {
+        "config_id": "0_0.0003_0",
+        "architecture": {
+          "channels": 64,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_1",
+        "architecture": {
+          "channels": 64,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_2",
+        "architecture": {
+          "channels": 64,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_0",
+        "architecture": {
+          "channels": 64,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_1",
+        "architecture": {
+          "channels": 64,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_2",
+        "architecture": {
+          "channels": 64,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_0",
+        "architecture": {
+          "channels": 128,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_1",
+        "architecture": {
+          "channels": 128,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_2",
+        "architecture": {
+          "channels": 128,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_0",
+        "architecture": {
+          "channels": 128,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_1",
+        "architecture": {
+          "channels": 128,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_2",
+        "architecture": {
+          "channels": 128,
+          "depth": 3,
+          "kernels": [
+            9,
+            19,
+            39
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      }
+    ],
+    "1D-CNN": [
+      {
+        "config_id": "0_0.0003_0",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_1",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_2",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_0",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_1",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_2",
+        "architecture": {
+          "channels": [
+            16,
+            32,
+            64
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_0",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_1",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_2",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_0",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_1",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_2",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            128
+          ],
+          "kernel_size": 5,
+          "fc_hidden": 64
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      }
+    ],
+    "FCN-1D": [
+      {
+        "config_id": "0_0.0003_0",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_1",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_2",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_0",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_1",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_2",
+        "architecture": {
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_0",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_1",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_2",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_0",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_1",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_2",
+        "architecture": {
+          "channels": [
+            64,
+            128,
+            128
+          ],
+          "kernels": [
+            8,
+            5,
+            3
+          ]
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      }
+    ],
+    "GRU": [
+      {
+        "config_id": "0_0.0003_0",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_1",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_2",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_0",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_1",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_2",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_0",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_1",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_2",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_0",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_1",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_2",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      }
+    ],
+    "BiGRU": [
+      {
+        "config_id": "0_0.0003_0",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_1",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_2",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_0",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_1",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_2",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_0",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_1",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_2",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_0",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_1",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_2",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "concatenated_final_forward_backward"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      }
+    ],
+    "LSTM": [
+      {
+        "config_id": "0_0.0003_0",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_1",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_2",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_0",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_1",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_2",
+        "architecture": {
+          "hidden_size": 32,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_0",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_1",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_2",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_0",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_1",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_2",
+        "architecture": {
+          "hidden_size": 64,
+          "num_layers": 2,
+          "readout": "last_hidden"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      }
+    ],
+    "Transformer Encoder": [
+      {
+        "config_id": "0_0.0003_0",
+        "architecture": {
+          "d_model": 32,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 64,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_1",
+        "architecture": {
+          "d_model": 32,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 64,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.0003_2",
+        "architecture": {
+          "d_model": 32,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 64,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_0",
+        "architecture": {
+          "d_model": 32,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 64,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_1",
+        "architecture": {
+          "d_model": 32,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 64,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "0_0.001_2",
+        "architecture": {
+          "d_model": 32,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 64,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_0",
+        "architecture": {
+          "d_model": 64,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 128,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_1",
+        "architecture": {
+          "d_model": 64,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 128,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.0003_2",
+        "architecture": {
+          "d_model": 64,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 128,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.0003,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_0",
+        "architecture": {
+          "d_model": 64,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 128,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.1,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_1",
+        "architecture": {
+          "d_model": 64,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 128,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.3,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      {
+        "config_id": "1_0.001_2",
+        "architecture": {
+          "d_model": 64,
+          "nhead": 4,
+          "num_layers": 2,
+          "dim_feedforward": 128,
+          "readout": "temporal_mean"
+        },
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.01,
+        "batch_size": 64
+      }
+    ],
+    "ROCKET-style": [
+      {
+        "config_id": "1024_0.01_None",
+        "n_kernels": 1024,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 0.01,
+        "class_weight": null,
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      },
+      {
+        "config_id": "1024_0.01_balanced",
+        "n_kernels": 1024,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 0.01,
+        "class_weight": "balanced",
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      },
+      {
+        "config_id": "1024_0.1_None",
+        "n_kernels": 1024,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 0.1,
+        "class_weight": null,
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      },
+      {
+        "config_id": "1024_0.1_balanced",
+        "n_kernels": 1024,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 0.1,
+        "class_weight": "balanced",
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      },
+      {
+        "config_id": "1024_1_None",
+        "n_kernels": 1024,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 1.0,
+        "class_weight": null,
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      },
+      {
+        "config_id": "1024_1_balanced",
+        "n_kernels": 1024,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 1.0,
+        "class_weight": "balanced",
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      },
+      {
+        "config_id": "2048_0.01_None",
+        "n_kernels": 2048,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 0.01,
+        "class_weight": null,
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      },
+      {
+        "config_id": "2048_0.01_balanced",
+        "n_kernels": 2048,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 0.01,
+        "class_weight": "balanced",
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      },
+      {
+        "config_id": "2048_0.1_None",
+        "n_kernels": 2048,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 0.1,
+        "class_weight": null,
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      },
+      {
+        "config_id": "2048_0.1_balanced",
+        "n_kernels": 2048,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 0.1,
+        "class_weight": "balanced",
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      },
+      {
+        "config_id": "2048_1_None",
+        "n_kernels": 2048,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 1.0,
+        "class_weight": null,
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      },
+      {
+        "config_id": "2048_1_balanced",
+        "n_kernels": 2048,
+        "kernel_sizes": [
+          7,
+          9,
+          11,
+          15
+        ],
+        "C": 1.0,
+        "class_weight": "balanced",
+        "feature_scaler": "StandardScaler fitted on training only",
+        "classifier": "LogisticRegression",
+        "solver": "lbfgs",
+        "max_iter": 3000
+      }
+    ]
+  },
+  "models": [
+    "TCN",
+    "ResNet1D",
+    "InceptionTimeLite",
+    "1D-CNN",
+    "FCN-1D",
+    "ROCKET-style",
+    "GRU",
+    "BiGRU",
+    "LSTM",
+    "Transformer Encoder"
+  ],
+  "model_keys": {
+    "TCN": "tcn",
+    "ResNet1D": "resnet1d",
+    "InceptionTimeLite": "inception_lite",
+    "1D-CNN": "cnn1d",
+    "FCN-1D": "fcn1d",
+    "ROCKET-style": "rocket_style",
+    "GRU": "gru",
+    "BiGRU": "bigru",
+    "LSTM": "lstm",
+    "Transformer Encoder": "transformer"
+  },
+  "primary_input": "First526 eligible direction values from the20s session,initial20 retained.",
+  "fixed_lengths": [
+    137,
+    526,
+    905,
+    1276
+  ],
+  "sequence_reduction": 300,
+  "posthandshake_slice": [
+    20,
+    526
+  ],
+  "handshake_only": "First20 directions followed by506 zeros.",
+  "fusion": "TCN and ResNet1D; same526 directions plus16 matched timing/direction statistics.",
+  "training": {
+    "optimizer": "Adam",
+    "loss": "BCEWithLogitsLoss",
+    "max_epochs": 50,
+    "min_epochs": 20,
+    "patience": 10,
+    "monitor": "validation ROC-AUC",
+    "gradient_clip": 1,
+    "neural_cudnn_tf32": true,
+    "rocket_cudnn_tf32": false,
+    "matmul_tf32": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic_except_tcn": true,
+    "cpu_threads": 2
+  },
+  "threshold": {
+    "minimum": 0.1,
+    "maximum": 0.9,
+    "step": 0.01,
+    "rule": [
+      "F1 maximum",
+      "Accuracy maximum",
+      "lower threshold"
+    ]
+  },
+  "bootstrap": {
+    "repetitions": 2000,
+    "seed": 20261022,
+    "group_aware": "Within-fold class-domain weights",
+    "session_stratified": "Shared class-domain weights across outer folds",
+    "trained_models_fixed": true
+  },
+  "protocol_filter": "(tcp or tls or quic) and not (dns or icmp or icmpv6)",
+  "horizon_seconds": 20,
+  "latency": {
+    "batch": 1,
+    "warmup": 50,
+    "repeats": 3,
+    "includes": [
+      "PCAPNG parsing",
+      "direction/feature packing",
+      "H2D",
+      "forward",
+      "D2H",
+      "class decision",
+      "final synchronization"
+    ],
+    "excludes": [
+      "collection wait",
+      "model loading",
+      "cold start"
+    ]
+  },
+  "excluded_unreported": [
+    "fixed holdout",
+    "masked initial20",
+    "sequence shuffling",
+    "exact threshold followup",
+    "statistics-only MLP",
+    "volume-only MLP",
+    "whole20s volume fusion"
+  ]
+}

@@ -1,0 +1,5 @@
+,Packet_count,Packet_count,Packet_count,Packet_count,Packet_count,Direction_run_count,Direction_run_count,Direction_run_count,Direction_run_count,Direction_run_count
+,mean,std,min,median,max,mean,std,min,median,max
+label,,,,,,,,,,
+0,3299.505652173913,1945.7346152791447,800,2586.5,9589,2055.45,1219.0252827370527,516,1758.5,6271
+1,1305.564347826087,1568.1124102907133,532,836.5,13280,934.8621739130435,1224.544020080845,362,578.0,11108

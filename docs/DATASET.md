@@ -1,81 +1,61 @@
-# Dataset
+# Dataset: direction526-20261101
 
-This repository contains the processed data used for reproducing the paper experiments. Raw packet captures are not shared. The included files begin after protocol filtering and direction-only sequence construction.
+This is the corrected protocol-filter cohort used for the revised manuscript's 526-input performance results. It is not the historical `v1.0.0` post-handshake dataset. Exact file fingerprints are in `data/DATASET_VERSION.json`; the original internal canonical numeric archive SHA-256 is `d0af74cb9714dcac39e2248402097ec17f33977e4c2c250e3f1b10a65b2e2cbb`. The released archive has different key names/packaging and its own fingerprint; do not confuse the two.
 
-The shared data have been anonymized for public release. Original URL/site names, original capture file names, and client IP values are not included. They are replaced with synthetic identifiers while preserving labels, sequence arrays, sample counts, group counts, and reproducibility of the reported tables.
+## Cohort and Labels
 
-## Paper Dataset Summary
+| Label | Class | Sessions | Site labels | Domain groups |
+| --- | --- | ---: | ---: | ---: |
+| 0 | Clear web | 2300 | 23 | 21 |
+| 1 | Dark mirror web | 2300 | 23 | 23 |
+| Total | | 4600 | 46 | 44 |
 
-The paper collected 4,600 web-access sessions:
+Each site label has 100 sessions. Aliases mapping to the same registrable domain share one anonymous domain ID. Group-aware splits hold all sessions from a domain together. The anonymous IDs preserve the verified original assignments; spelling and URL-to-domain reverse mappings are deliberately not public. All arrays and CSVs use the same zero-based `index`. `session_id` is a public pseudonym, not a filename or capture identifier.
 
-| Class | URLs | Repetitions per URL | Session duration | Sessions |
-|---|---:|---:|---:|---:|
-| Clear Web | 23 | 100 | 20 s | 2,300 |
-| Dark Web Mirror site | 23 | 100 | 20 s | 2,300 |
-| Total | 46 | 100 | 20 s | 4,600 |
+## Array Schema
 
-The binary label is assigned by URL type and applied to every repeated session from that URL.
+Load with `numpy.load(path, allow_pickle=False)`.
 
-| Label | Meaning |
-|---:|---|
-| `0` | Clear Web |
-| `1` | Dark Web Mirror site |
+`data/processed/direction_sequences.npz`:
 
-## Direction Encoding
+| Key | Shape | Type / meaning |
+| --- | --- | --- |
+| `prefix` | (4600, 1276) | int8; first eligible directions within 20 seconds, right padded with 0 |
+| `relative_times_s` | (4600, 1276) | float64; seconds relative to first captured frame; NaN at padding |
+| `window_counts` | (4600, 4) | int64; eligible counts at actual <=1, <=3, <=5, <=10 seconds |
+| `retained_count` | (4600,) | int32; eligible count over the entire <=20-second session, including beyond prefix |
+| `y` | (4600,) | int64; 0 Clear / 1 Dark mirror |
+| `groups` | (4600,) | Unicode anonymous domain IDs |
 
-Only packet transmission direction is retained:
+`light_statistics_526.npz` contains `light`, shape (4600,16), float32. It is redundant with the first 526 directions and relative times and is released for exact feature checking. **Relative times and these features are auxiliary inputs only for the explicitly identified fusion experiment; the baseline uses only `prefix`.** No absolute capture timestamps are released.
 
-| Value | Meaning |
-|---:|---|
-| `+1` | client-to-server |
-| `-1` | server-to-client |
-| `0` | padding |
+`full20s_direction_descriptives.csv` adds whole-session direction-run counts for the paper's descriptive traffic-volume comparison. Whole-session counts and run counts are **not baseline/fusion classifier inputs**. The prefix alone cannot reconstruct run counts beyond position 1276.
 
-Payloads, URL strings, page content, packet sizes, and timing values are not included in the model input.
+## Input Construction
 
-## Protocol Filtering
-
-The original preprocessing retained packets associated with web encrypted-traffic flows: TCP, TLS, and QUIC. DNS, ICMP, and UDP packets not identified as QUIC were excluded before direction encoding.
-
-## File Schema
-
-Each `.npz` dataset contains:
-
-| Key | Shape | Description |
-|---|---|---|
-| `X_dir_cnn` | `(n, 1, L)` | input format for Conv1D-style models, including TCN and ResNet1D |
-| `X_dir_rnn` | `(n, L, 1)` | input format for recurrent models |
-| `y` | `(n,)` | binary labels |
-| `groups` | `(n,)` | anonymized URL/site group IDs, e.g., `clear_site_01`, `mirror_site_01` |
-| `file_names` | `(n,)` | anonymized sample IDs, e.g., `clear_sample_0001`, `mirror_sample_0001` |
-
-Metadata CSV files are sanitized and do not contain local raw-capture paths. The `client_ip` field is redacted as `CLIENT_IP_REDACTED`.
-
-## Data-to-Experiment Mapping
-
-| Paper experiment | Included data |
-|---|---|
-| Initial time-window comparison | `data/processed/initial_time_windows/1s_seq137.npz`, `3s_seq526.npz`, `5s_seq905.npz`, `10s_seq1276.npz` |
-| Handshake ablation | `data/processed/handshake_ablation/seq506_posthandshake.npz`, `seq506_handshake_included.npz`, `seq506_handshake_only.npz`, `seq506_handshake_masked.npz` |
-| Sequence length reduction | `data/processed/handshake_ablation/seq506_posthandshake.npz`, `seq300_posthandshake.npz` |
-| Model comparison | `data/processed/final_seq506_posthandshake/direction_seq506_posthandshake.npz` |
-| TCN and ResNet1D tuning | `data/processed/final_seq506_posthandshake/direction_seq506_posthandshake.npz` |
-
-## Final Input
-
-The final model-comparison and tuning input is:
-
-```text
-data/processed/final_seq506_posthandshake/direction_seq506_posthandshake.npz
+```python
+baseline = prefix[:, :526]                  # includes first 20; length 526
+post_handshake = prefix[:, 20:526]           # excludes once; length 506
+reduction = prefix[:, :300]                  # includes first 20; length 300
+handshake_only = zeros((4600, 526))          # put prefix[:, :20] at positions 0:20
 ```
 
-It follows this construction:
+The minimum eligible 20-second count is 532, so no primary 526-input sample is padded. Longer 905/1276 inputs have class-dependent padding incidence; zero positions can reveal available traffic length. Fixed-length truncation reduces whole-session volume dependence but does not guarantee volume invariance or removal of all confounding.
 
-1. Select the first 526 packet directions from the session.
-2. Treat the first 20 packets as the handshake/connection-initialization segment.
-3. Remove those 20 packets.
-4. Use the remaining `506` packet-direction symbols as the fixed-length input.
+CNN/TCN/Transformer inputs are float32 `(N,1,L)`; GRU/BiGRU/LSTM receive the same values reshaped to `(N,L,1)`. Reshaping introduces no new information. No packet size, URL, hostname or payload is a baseline feature.
 
-This is equivalent to `direction[20:526]`.
+## Metadata and Splits
 
-Therefore, `seq_len=506` always refers to the post-handshake length after removing the initial 20 packets from the 526-direction baseline. It does not mean that 20 packets are removed again from an already 506-long sequence.
+- `sessions.csv`: row index, anonymous session/site/domain IDs, class and eligible 20-second count.
+- `sites_and_domain_groups.csv`: 46 pseudonymous site labels and their 44-group assignment, including aliases.
+- `data/splits/{group_aware,session_stratified}/split_assignments.csv`: exact ordered outer `fit`, `validation`, `test` indices.
+- `inner_split_assignments.csv`: exact ordered inner `fit`/`validation` indices, all inside the outer fit subset.
+- `latency_sample_assignments.csv`: fixed representative input indices used for reported timing.
+
+The supplied assignments, rather than a regenerated split on renamed domain strings, are the authoritative evaluation partitions. A renamed string can alter sorting/tie decisions in a group splitter. All learning seeds reuse these fixed partitions. Session-stratified splitting deliberately permits the same domain in fit and test; it measures new sessions from previously observed sites, unlike the group-aware protocol.
+
+## Privacy and Limitations
+
+The release is pseudonymized: original URLs/domains, IPs, capture dates, raw paths, payloads, PCAP files and private mapping tables are excluded. Stable group membership, labels, counts, relative timings and model probabilities remain by design. These can support traffic fingerprinting or linkage if combined with external information; pseudonymization is not a claim of guaranteed irreversible anonymity. Do not attempt re-identification. No raw-PCAP collection or security-sensitive browsing logs are necessary to run the released learning experiments.
+
+Table 3(a)'s historical statistics must be corrected using this version; see [MANUSCRIPT_CORRECTIONS](MANUSCRIPT_CORRECTIONS.md). The fixed lengths are pre-existing design constants, not newly estimated training-fold medians.

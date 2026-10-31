@@ -1,138 +1,71 @@
-# Detecting Dark Web Mirror Sites on the ClearNET
+# Dark Web Mirror Traffic Detection
 
-This repository is the reproducibility package for the paper:
+Data and code supporting **Detecting Dark Web Mirror Sites on the ClearNET: An Encrypted Traffic Classification Approach** (revised Korean manuscript).
 
-**Detecting Dark Web Mirror Sites on the ClearNET: An Encrypted Traffic Classification Approach**
+**Use code tag [`paper-20261101`](https://github.com/sanggoo3/dark-web-mirror-traffic-detection/tree/paper-20261101) with dataset `direction526-20261101`.** The historical `v1.0.0` snapshot uses different inputs and evaluations; it is not the dataset/code version for this revised manuscript. Its history and tag are preserved.
 
-It contains the processed direction-only sequence data, code, and final result tables needed to reproduce the paper's experimental tables. Raw `pcap` or `pcapng` captures are intentionally not included; the shared dataset starts after protocol filtering and packet-direction encoding.
+## Availability
 
-The released data are anonymized. Site/group identifiers, sample file identifiers, and client IP values in the metadata and `.npz` files have been replaced with synthetic IDs such as `clear_site_01`, `mirror_site_01`, `clear_sample_0001`, and `CLIENT_IP_REDACTED`. The anonymization preserves labels, sample counts, group counts, sequence values, and all table-reproduction behavior.
+Processed, pseudonymized direction sequences, auxiliary relative timing data, split assignments, model configurations and recorded numerical results are public here. **Raw PCAP/PCAPNG files are not public for privacy and security reasons.** Original URLs, domain strings, IP addresses, capture dates and local source paths are not included. Anonymous site/domain relationships are retained to audit group separation. See [DATASET](docs/DATASET.md), [PREPROCESSING](docs/PREPROCESSING.md) and [availability statements](docs/AVAILABILITY_ko.md).
 
-## Scope
+The primary input is the **first 526 eligible packet directions within a 20-second session, including the initial 20 packets**. Values are +1 client-to-server, -1 server-to-client, 0 right padding. Length 506 is only the ablation slice `q[20:526]`. Classification is not restricted to the first three seconds. **Table 3(a) contains historical statistics that differ from the corrected final data**; corrected numbers are supplied in [MANUSCRIPT_CORRECTIONS](docs/MANUSCRIPT_CORRECTIONS.md). Fixed comparison lengths remain 137/526/905/1276.
 
-The paper studies binary session-level classification between ordinary Clear Web access and Dark Web Mirror site access in a ClearNET browser environment. The model input excludes payloads, URLs, page content, packet sizes, and timing. Each sample is represented only by packet direction:
+## Contents
 
-| Value | Meaning |
-|---:|---|
-| `+1` | client-to-server packet |
-| `-1` | server-to-client packet |
-| `0` | padding |
+| Location | Contents |
+| --- | --- |
+| `data/processed/` | Compressed numeric arrays; no raw network payload |
+| `data/metadata/` | Anonymous sessions, 46 sites / 44 domain groups, timing sample membership |
+| `data/splits/` | Exact outer and inner assignments for both five-fold protocols |
+| `configs/` | All 12-candidate grids, 100 fold/model winners, feature scalers and provenance |
+| `src/darkmirror_repro/` | Models, tuning/training, locked test evaluation, preprocessing, statistics and timing |
+| `results/recorded/` | 7,200 HPO trials, 700 final runs, validation/test probabilities and timed calls |
+| `results/tables/` | Recalculated manuscript tables and Figure 3 data/plot |
+| `docs/` | Protocol, limitations, corrections, checks and availability wording |
 
-Labels follow the paper definition:
+Only experiments reported in this manuscript are included. Historical fixed holdout, masked/shuffled controls, statistics-only and whole-session volume-fusion experiments are excluded. See [EXPERIMENTS](docs/EXPERIMENTS.md) for the exact table-to-command mapping.
 
-| Label | Meaning |
-|---:|---|
-| `0` | Clear Web |
-| `1` | Dark Web Mirror site |
+## Install
 
-## Repository Layout
+Python 3.12.7 was used. Create a separate environment. For recorded CUDA 12.1 training, install PyTorch from its [official historical wheel index](https://docs.pytorch.org/get-started/previous-versions/):
 
-```text
-data/processed/                  processed direction-only sequence data
-docs/                            dataset, experiment, and reproducibility notes
-results/paper_tables/            final paper-ready tables
-results/experiment_outputs/      backing CSV files for window and ablation results
-results/model_outputs/           backing CSV files for model comparison
-results/tcn_tuning/              TCN tuning outputs
-results/resnet1d_tuning/         ResNet1D tuning outputs
-scripts/                         runnable entry-point scripts
-src/darkmirror_repro/            reusable reproduction code
+```console
+python -m pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+python -m pip install -r requirements.txt
+python -m pip install --no-deps -e .
 ```
 
-## Final Input Condition
+PyTorch CPU is sufficient for verification and recorded-result reaggregation. The reference training entry point requires CUDA. Run commands from the repository root; keep the repository data beside the editable package. A different data location can be supplied using `python -m darkmirror_repro --root PATH ...`.
 
-The final model-comparison condition uses the 3-second median-based sequence length from the paper:
+## Verify and Recalculate
 
-- read the first 526 packet directions from each session
-- remove the first 20 packets as the handshake/connection-initialization segment
-- use the remaining fixed-length direction-only sequence
-- final input length: `seq_len=506`
-
-Important: `seq_len=506` is the length after handshake removal. It is computed as `526 - 20 = 506`; the preprocessing does not start from 506 and then remove another 20 packets.
-
-Main final data file:
-
-```text
-data/processed/final_seq506_posthandshake/direction_seq506_posthandshake.npz
+```console
+python -m darkmirror_repro verify
+python -m unittest discover -s tests -v
+python -m darkmirror_repro reproduce --out artifacts/reproduced
 ```
 
-Each `.npz` file contains:
+`verify` checks the versioned SHA-256 manifest, array encoding, padding and split disjointness. `reproduce` independently recalculates metrics, validation thresholds, HPO winners, seed intervals, 2,000-replicate conditional domain intervals, timing summaries and Figure 3. It asserts agreement with the released reference numbers. It **does not retrain**. `--skip-bootstrap` provides a faster audit without claiming to recalculate domain intervals.
 
-| Key | Shape | Description |
-|---|---|---|
-| `X_dir_cnn` | `(n, 1, L)` | Conv1D, TCN, ResNet1D-style input |
-| `X_dir_rnn` | `(n, L, 1)` | GRU, BiGRU, LSTM-style input |
-| `y` | `(n,)` | binary labels |
-| `groups` | `(n,)` | anonymized URL/site group IDs |
-| `file_names` | `(n,)` | anonymized sample IDs |
+## Retrain
 
-## Setup
-
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -e .
+```console
+python -m darkmirror_repro tune --out artifacts/rerun
+python -m darkmirror_repro train --out artifacts/rerun
+python -m darkmirror_repro evaluate --out artifacts/rerun
+python -m darkmirror_repro summarize --out artifacts/rerun
 ```
 
-The original final runs used Python 3.12.7, PyTorch 2.5.1+cu121, CUDA 12.1, and an NVIDIA GeForce RTX 3060 Ti. See `environment_versions.json`.
+This executes 7,200 inner-HPO fits and 700 final fits, followed by batch-one test evaluation. For retraining with the already recorded validation-selected settings, skip HPO using `train --recorded-choices`. Commands support `--split`, `--model`, `--fold` filters; training also supports `--seed`. Such a filtered run is a smoke/subset experiment, not a complete paper rerun. Outputs go to ignored `artifacts/`; released results are never overwritten. No model checkpoint weights are distributed; train them locally.
 
-## Reproduce Tables
+Numerical equality after retraining is not guaranteed across GPU, driver or library versions. The validation checks include replay of the original checkpoints for all released model/condition combinations, but not a new full 7,900-fit rerun. The cohort was inspected during prior exploratory development; group separation prevents shared-domain leakage within the supplied splits, not all possible historical development bias or proof of external generalization.
 
-Run from the repository root:
+## Processing Time
 
-```bash
-python scripts/reproduce_tables.py
-```
+Recorded timing can be reaggregated publicly. New end-to-end PCAP preprocessing measurements require separately held captures and client-IP metadata, so this part cannot be independently repeated from processed sequences alone. [LATENCY](docs/LATENCY.md) specifies the exact timing boundaries and private-input benchmark command. Reported processing excludes packet collection wait and model loading; it is not live wall-clock detection delay.
 
-Regenerated tables are written to:
+## Version and Licensing
 
-```text
-results/reproduced_tables/
-```
+`data/DATASET_VERSION.json` identifies every data file by SHA-256; `release_manifest.json` identifies the entire snapshot (excluding itself). Git tag `paper-20261101` pins source and dataset together. Do not substitute the historical `v1.0.0` data when citing the revised paper.
 
-The script rebuilds the paper-ready CSV and Markdown tables from the packaged processed data and backing result files.
-
-## Inspect Data
-
-```bash
-python scripts/inspect_dataset.py
-```
-
-## Optional Retraining and Tuning
-
-Reference retraining:
-
-```bash
-python scripts/train_reference_model.py --model tcn
-python scripts/train_reference_model.py --model resnet1d
-```
-
-Hyperparameter tuning reruns under the final `first 526 -> remove first 20 -> seq_len=506` condition:
-
-```bash
-python scripts/tune_tcn.py
-python scripts/tune_resnet1d.py
-```
-
-Retraining can produce small numerical differences across PyTorch, CUDA, and GPU environments.
-
-## Versioned Snapshot
-
-For paper reproduction, use the fixed `v1.0.0` tag rather than the moving `main` branch:
-
-```text
-https://github.com/sanggoo3/dark-web-mirror-traffic-detection/tree/v1.0.0
-```
-
-## License
-
-This repository uses a split license:
-
-- Code: MIT License. See `LICENSE`.
-- Data, results, and documentation: CC BY-NC 4.0. See `DATA_LICENSE.md`.
-
-## Interpretation Notes
-
-The final experiments use a sample-level stratified split with seed `42`. The same URL group can appear in train, validation, and test splits, so the results should be interpreted as sample-level session classification performance rather than unseen-URL generalization.
-
-TCN achieved the highest ROC-AUC under the final sequence condition. ResNet1D is also retained as a final candidate because the paper evaluates detection performance together with end-to-end processing time.
+Code: [MIT](LICENSE). Data, results, metadata, configurations and documentation: [CC BY-NC 4.0](DATA_LICENSE.md). Cite the paper title and the exact repository tag/dataset version; publication DOI is not supplied until assigned.
