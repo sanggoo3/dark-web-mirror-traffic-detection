@@ -2,7 +2,7 @@
 
 Data and code supporting **Detecting Dark Web Mirror Sites on the ClearNET: An Encrypted Traffic Classification Approach** (revised Korean manuscript).
 
-**Use code tag [`paper-20261101`](https://github.com/sanggoo3/dark-web-mirror-traffic-detection/tree/paper-20261101) with dataset `direction526-20261101`.** The historical `v1.0.0` snapshot uses different inputs and evaluations; it is not the dataset/code version for this revised manuscript. Its history and tag are preserved.
+**Use release [`v2.0.0`](https://github.com/sanggoo3/dark-web-mirror-traffic-detection/releases/tag/v2.0.0) with dataset `direction526-20261101`.** This is the reproducibility version for the revised manuscript.
 
 ## Availability
 
@@ -66,6 +66,6 @@ Recorded timing can be reaggregated publicly. New end-to-end PCAP preprocessing 
 
 ## Version and Licensing
 
-`data/DATASET_VERSION.json` identifies every data file by SHA-256; `release_manifest.json` identifies the entire snapshot (excluding itself). Git tag `paper-20261101` pins source and dataset together. Do not substitute the historical `v1.0.0` data when citing the revised paper.
+`data/DATASET_VERSION.json` identifies every data file by SHA-256; `release_manifest.json` identifies the entire snapshot (excluding itself). Git tag `v2.0.0` pins source and dataset together. Cite this release rather than the changing default branch.
 
 Code: [MIT](LICENSE). Data, results, metadata, configurations and documentation: [CC BY-NC 4.0](DATA_LICENSE.md). Cite the paper title and the exact repository tag/dataset version; publication DOI is not supplied until assigned.
